@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -80,11 +77,16 @@ public class Controller {
     @FXML
     protected void signupcancel(ActionEvent event) throws IOException{
         System.out.println("Cancel Button Pressed!!");
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Sign Up Cancellation");
+        alert.setContentText("Do you want to quit signing up?");
+        if(alert.showAndWait().get() == ButtonType.OK) {
+            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
     @FXML
     protected void welcomePage(ActionEvent event) throws IOException{

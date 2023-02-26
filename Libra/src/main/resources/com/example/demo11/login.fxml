@@ -22,7 +22,7 @@
                   <Font size="85.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="111.0" layoutY="265.0" prefHeight="44.0" prefWidth="210.0" text="A Bloggng Platform" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="107.0" layoutY="265.0" prefHeight="44.0" prefWidth="218.0" text="A Blogging Platform" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
