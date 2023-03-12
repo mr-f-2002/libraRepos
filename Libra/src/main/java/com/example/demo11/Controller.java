@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Controller {
     @FXML
@@ -24,6 +25,8 @@ public class Controller {
     private Stage stage;
     private Scene scene;
     @FXML
+    private Parent root;
+    @FXML
     protected void signupBtn(ActionEvent event) throws IOException {  // signup button in login page
         System.out.println("UP");
         Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
@@ -33,25 +36,22 @@ public class Controller {
         stage.show();
     }
     @FXML
-    protected void loginBtn(ActionEvent event) throws IOException{
+    protected void loginBtn(ActionEvent event) throws IOException, SQLException {
         if(username.getText().isBlank() == true || password.getText().isBlank() == true) {
             loginError.setText("Wrong username or password!!");
         }else {
             String usrname = username.getText();
             String pass = password.getText();
-            if(usrname.equals("admin") && pass.equals("123")){
+            if(JDBC.checkEntry(usrname, pass) == true) {
                 welcomePage(event);
-                /*
-                    For now, I used hardcoded values, in real scene
-                    usrname and pass needs to be checked in database
-                */
             } else{
                 loginError.setText("Wrong username or password!!");
             }
         }
     }
+
     @FXML
-    protected void signup(){   //signup button in signup page
+    protected void signup(ActionEvent event) throws SQLException, IOException {   //signup button in signup page
         System.out.println("signup Button Pressed");
         String fn = firstName.getText();
         String ln = lastName.getText();
@@ -65,13 +65,17 @@ public class Controller {
             signupError.setText("Password must be identical for both fields!");
         }
         else {
-            /*
-              check if the username already exists or not
-              if exists,
-                    signupError.setText("Username Already Exists");
-              if not,
-                    Insert the user information in the DATABASE
-             */
+            if(JDBC.checkUsernameAndMail(username, mail) == false)
+                signupError.setText("username or email already exists");
+            else {
+                pas1 = Controller.encrypt(pas1);
+                JDBC.EnterData(fn, ln, id, department, mail, username, pas1);
+                Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
         }
     }
     @FXML
@@ -90,10 +94,29 @@ public class Controller {
     }
     @FXML
     protected void welcomePage(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("welcomepage.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
+        root = loader.load();
+        welcomepageController wc = loader.getController();
+        wc.setData(username.getText());
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    public static String encrypt(String input) {
+        int key = 3;
+        String output = "";
+
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            int code = (int) c;
+            int shifted = code + key;
+            char encryptedChar = (char) shifted;
+            output += encryptedChar;
+        }
+        return output;
+    }
+
 }

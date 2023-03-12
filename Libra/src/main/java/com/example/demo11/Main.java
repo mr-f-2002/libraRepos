@@ -2,6 +2,7 @@ package com.example.demo11;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -11,6 +12,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        //scene.getStylesheets().add("style.css");
         stage.setTitle("Log In Page!");
         stage.setScene(scene);
         stage.show();

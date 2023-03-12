@@ -24,7 +24,7 @@
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="526.0" layoutY="267.0" text="Depertment :" textFill="WHITE">
+      <Label layoutX="526.0" layoutY="267.0" text="Department :" textFill="WHITE">
          <font>
             <Font name="Berlin Sans FB" size="24.0" />
          </font>
@@ -57,7 +57,7 @@
       <TextField fx:id="firstName" layoutX="689.0" layoutY="122.0" prefHeight="18.0" prefWidth="453.0" promptText="first name" />
       <TextField fx:id="lastName" layoutX="689.0" layoutY="169.0" prefHeight="18.0" prefWidth="453.0" promptText="last name" />
       <TextField fx:id="sId" layoutX="689.0" layoutY="219.0" prefHeight="18.0" prefWidth="453.0" promptText="student id" />
-      <TextField fx:id="dept" layoutX="689.0" layoutY="268.0" prefHeight="18.0" prefWidth="453.0" promptText="Corresponding Depertment" />
+      <TextField fx:id="dept" layoutX="689.0" layoutY="268.0" prefHeight="18.0" prefWidth="453.0" promptText="Corresponding Department" />
       <TextField fx:id="email" layoutX="689.0" layoutY="316.0" prefHeight="18.0" prefWidth="453.0" promptText="Enter your E-mail Address" />
       <TextField fx:id="sUsername" layoutX="689.0" layoutY="360.0" prefHeight="18.0" prefWidth="453.0" promptText="Enter Username" />
       <PasswordField fx:id="sRepassword" layoutX="689.0" layoutY="444.0" prefHeight="26.0" prefWidth="454.0" promptText="Re-enter password" />
