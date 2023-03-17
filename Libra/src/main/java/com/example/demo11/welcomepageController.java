@@ -10,9 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -27,7 +24,6 @@ public class welcomepageController implements Initializable{
     @FXML private Stage stage;
     @FXML private Scene scene;
     @FXML private Parent root;
-    @FXML private Button bt, bt2, bt3;
     @FXML
     void addPost(ActionEvent event) throws IOException {
         System.out.println("UP");
@@ -71,6 +67,7 @@ public class welcomepageController implements Initializable{
     void setData(String s, String s2) {
         userName.setText(s);
         userId.setText(s2);
+        Structure.userID = s2;
     }
 
 

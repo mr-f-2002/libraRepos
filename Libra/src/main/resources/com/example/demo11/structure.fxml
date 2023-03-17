@@ -19,6 +19,14 @@
             <Font name="Calibri" size="26.0" />
          </font>
       </Label>
+      <Label fx:id="postId" text="Label">
+         <VBox.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Calibri Italic" size="15.0" />
+         </font>
+      </Label>
       <HBox prefHeight="26.0" prefWidth="870.0">
          <children>
             <Label fx:id="category" text="Category">

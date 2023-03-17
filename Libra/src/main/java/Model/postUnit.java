@@ -80,7 +80,23 @@ public class postUnit {
     public void setPostId(String postId) {
         this.postId = postId;
     }
+    public String getLikeImgUrl() {
+        return likeImgUrl;
+    }
 
+    public void setLikeImgUrl(String likeImgUrl) {
+        this.likeImgUrl = likeImgUrl;
+    }
+
+    public String getDislikeImgUrl() {
+        return dislikeImgUrl;
+    }
+
+    public void setDislikeImgUrl(String dislikeImgUrl) {
+        this.dislikeImgUrl = dislikeImgUrl;
+    }
+
+    private String dislikeImgUrl;
     private String userid;
     private String category;
     private String date;
@@ -91,4 +107,6 @@ public class postUnit {
     private String likeImgSrc;
     private String dislikeImgSrc;
     private String postId;
+    private String likeImgUrl;
+
 }
