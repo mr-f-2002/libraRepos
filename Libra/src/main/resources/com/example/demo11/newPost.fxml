@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
@@ -26,43 +27,47 @@
                         <Image url="@libraLogo.png" />
                     </image>
                 </ImageView>
+            <Label fx:id="userId" layoutX="16.0" layoutY="91.0" prefHeight="54.0" prefWidth="174.0" text="user ID : " textFill="WHITE">
+               <font>
+                  <Font name="Tempus Sans ITC" size="16.0" />
+               </font>
+            </Label>
             </children></AnchorPane>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="9.0" prefHeight="181.0" prefWidth="206.0" text="Libra" textFill="WHITE">
             <font>
                 <Font name="Viner Hand ITC" size="78.0" />
             </font>
         </Label>
-        <ImageView accessibleRole="BUTTON" fitHeight="35.0" fitWidth="35.0" layoutX="1138.0" layoutY="489.0" pickOnBounds="true">
-            <image>
-                <Image url="@add.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="1133.0" layoutY="555.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@home.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="1133.0" layoutY="626.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@profile.png" />
-            </image>
-        </ImageView>
-        <Button fx:id="addPost" layoutX="1132.0" layoutY="489.0" mnemonicParsing="false" onAction="#addPost" opacity="0.0" prefHeight="35.0" prefWidth="46.0" />
-        <Button fx:id="myProfile" layoutX="1132.0" layoutY="558.0" mnemonicParsing="false" onAction="#loadHome" opacity="0.0" prefHeight="35.0" prefWidth="46.0" />
-        <Button fx:id="home" layoutX="1132.0" layoutY="629.0" mnemonicParsing="false" onAction="#loadProfile" opacity="0.0" prefHeight="35.0" prefWidth="46.0" />
         <ScrollPane layoutX="238.0" layoutY="8.0" prefHeight="686.0" prefWidth="873.0" style="-fx-background: #525252;">
             <content>
                 <VBox fx:id="container" alignment="CENTER" prefHeight="682.0" prefWidth="870.0">
                <children>
-                  <TextArea prefHeight="200.0" prefWidth="200.0" />
+                  <HBox spacing="30.0">
+                     <children>
+                        <Label text="Catagory :" textFill="WHITE">
+                           <font>
+                              <Font name="Segoe Print" size="21.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="category" prefHeight="14.0" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets top="7.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <TextArea fx:id="postArea" prefHeight="200.0" prefWidth="200.0" />
                   <HBox alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="136.0" text="Add">
+                        <Button fx:id="addBtn" mnemonicParsing="false" onAction="#insertPost" prefHeight="44.0" prefWidth="136.0" text="Add">
                            <HBox.margin>
                               <Insets right="50.0" top="20.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="136.0" text="Cancle">
+                        <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cencelPost" prefHeight="44.0" prefWidth="136.0" text="Cancel">
                            <HBox.margin>
                               <Insets left="50.0" top="20.0" />
                            </HBox.margin>
