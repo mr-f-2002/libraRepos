@@ -1,20 +1,30 @@
 package com.example.demo11;
 
+import java.time.LocalDate;
+
 public class setter {
     private String userName;
+    private LocalDate postDate;
+    private String postID;
     private String postContent;
-    public void setUserName(String s) {
-        this.userName = s;
-    }
+    private int likeCount;
+    private int dislikeCount;
+    public void setUserName(String s) {this.userName = s;}
     public void setPostContent(String s){
         this.postContent = s;
     }
-
+    public void setPostDate(LocalDate d){this.postDate = d;}
+    public LocalDate getPostDate() {return postDate;}
     public String getPostContent() {
         return postContent;
     }
-
     public String getUserName() {
         return userName;
     }
+    public int getLikeCount() {return likeCount;}
+    public int getDislikeCount() {return dislikeCount;}
+    public void setLikeCount(int likeCount) {this.likeCount = likeCount;}
+    public void setDislikeCount(int dislikeCount) {this.dislikeCount = dislikeCount;}
+    public String getPostID() {return postID;}
+    public void setPostID(String porstID) {this.postID = porstID;}
 }

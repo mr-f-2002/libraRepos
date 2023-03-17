@@ -14,7 +14,7 @@
    <children>
       <AnchorPane layoutX="14.0" layoutY="155.0" prefHeight="530.0" prefWidth="205.0" style="-fx-background-color: #525252;">
          <children>
-            <Label fx:id="userName" layoutX="15.0" layoutY="37.0" prefHeight="54.0" prefWidth="174.0" text="username" textFill="WHITE">
+            <Label fx:id="userName" alignment="CENTER" layoutX="15.0" layoutY="37.0" prefHeight="54.0" prefWidth="174.0" text="username" textFill="WHITE">
                <font>
                   <Font name="Tempus Sans ITC" size="23.0" />
                </font>
@@ -24,6 +24,11 @@
                   <Image url="@libraLogo.png" />
                </image>
             </ImageView>
+            <Label fx:id="userId" alignment="CENTER" layoutX="15.0" layoutY="91.0" prefHeight="54.0" prefWidth="174.0" text="User ID : " textFill="WHITE">
+               <font>
+                  <Font name="Tempus Sans ITC" size="16.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="75.0" prefHeight="64.0" prefWidth="205.0" style="-fx-background-color: #525252;">
          <children>

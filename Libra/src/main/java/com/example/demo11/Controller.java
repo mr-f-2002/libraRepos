@@ -43,7 +43,15 @@ public class Controller {
             String usrname = username.getText();
             String pass = password.getText();
             if(JDBC.checkEntry(usrname, pass) == true) {
-                welcomePage(event);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
+                root = loader.load();
+                welcomepageController wc = loader.getController();
+                String userID = JDBC.getUserId(username.getText());
+                wc.setData(username.getText(), userID);
+                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
             } else{
                 loginError.setText("Wrong username or password!!");
             }
@@ -68,7 +76,7 @@ public class Controller {
             if(JDBC.checkUsernameAndMail(username, mail) == false)
                 signupError.setText("username or email already exists");
             else {
-                pas1 = Controller.encrypt(pas1);
+                pas1 = UTILITY.encrypt(pas1);
                 JDBC.EnterData(fn, ln, id, department, mail, username, pas1);
                 Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -92,31 +100,7 @@ public class Controller {
             stage.show();
         }
     }
-    @FXML
-    protected void welcomePage(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
-        root = loader.load();
-        welcomepageController wc = loader.getController();
-        wc.setData(username.getText());
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
-    @FXML
-    public static String encrypt(String input) {
-        int key = 3;
-        String output = "";
 
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            int code = (int) c;
-            int shifted = code + key;
-            char encryptedChar = (char) shifted;
-            output += encryptedChar;
-        }
-        return output;
-    }
 
 }
