@@ -34,8 +34,16 @@ public class Structure implements Initializable {
     @FXML private Label postId;
     public static String userID;
     @FXML
-    void openCmntWindow(ActionEvent event) {
-
+    void openCmntWindow(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("commentPage.fxml"));
+        Parent root = loader.load();
+        CommentPage cp = loader.getController();
+        cp.initialize(null, null, postId.getText());
+        CommentPage.postid =  postId.getText();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
 

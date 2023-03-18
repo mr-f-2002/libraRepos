@@ -154,9 +154,10 @@ public class JDBC {
                 set.setPostId(rs.getString("postid"));
                 set.setCategory(rs.getString("category"));
 
-                Pair<Integer, Integer> p = JDBC.like_dislike_count(rs.getString("postid"));
-                set.setLikeCount(p.getKey());
-                set.setDislikeCount(p.getValue());
+                List<Integer> p = JDBC.like_dislike_count(rs.getString("postid"));
+                set.setLikeCount(p.get(0));
+                set.setDislikeCount(p.get(1));
+                set.setCmntCount(p.get(2));
 
                 /*int imgSetter = JDBC.isLikesOrDisliked(rs.getString("p_userid"), rs.getString("postid"));
                 if(imgSetter == 1) {
@@ -199,9 +200,10 @@ public class JDBC {
                 set.setPostId(rs.getString("postid"));
                 set.setCategory(rs.getString("category"));
 
-                Pair<Integer, Integer> p = JDBC.like_dislike_count(rs.getString("postid"));
-                set.setLikeCount(p.getKey());
-                set.setDislikeCount(p.getValue());
+                List<Integer> p = JDBC.like_dislike_count(rs.getString("postid"));
+                set.setLikeCount(p.get(0));
+                set.setDislikeCount(p.get(1));
+                set.setCmntCount(p.get(2));
 
                 setPost.add(set);
             }
@@ -211,29 +213,41 @@ public class JDBC {
         }
         return setPost;
     }
-    public static Pair<Integer, Integer> like_dislike_count(String postID){
+    public static List<Integer> like_dislike_count(String postID){
         String url = "jdbc:mysql://localhost:3306/libra";
         String user = "root";
         String password = "yh56$$hHFHD45";
         int likeCount = 0;
         int dislikeCount = 0;
+        int commentCount = 0;
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement st = conn.createStatement();
+
             st.execute("select count(*) from likes where postid = "+postID+";");
             ResultSet rs = st.getResultSet();
             if(rs.next())
                 likeCount = rs.getInt("count(*)");
+
             st.execute("select count(*) from dislikes where d_postid = "+postID+";");
             rs = st.getResultSet();
             if(rs.next())
                 dislikeCount = rs.getInt("count(*)");
+
+            st.execute("select count(*) from comments where c_postid = "+postID+";");
+            rs = st.getResultSet();
+            if(rs.next())
+                commentCount = rs.getInt("count(*)");
+
         } catch (SQLException e) {
             System.out.println("Failed to connect like_dislike_count");
             e.printStackTrace();
         }
-        Pair<Integer, Integer> p = new Pair<Integer, Integer>(likeCount, dislikeCount);
+        List<Integer> p = new ArrayList<>();
+        p.add(likeCount);
+        p.add(dislikeCount);
+        p.add(commentCount);
         return p;
     }
 
@@ -303,6 +317,49 @@ public class JDBC {
             System.out.println("Failed to connect");
             e.printStackTrace();
         }
+    }
+
+    public static void insertComment(String userid, String postid, String commentbody){
+        System.out.println("inside the enter data portion");
+        String url = "jdbc:mysql://localhost:3306/libra";
+        String user = "root";
+        String password = "yh56$$hHFHD45";
+
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            System.out.println("Connected to database in comment entering");
+            Statement st = conn.createStatement();
+            st.execute("insert into comments values('"+postid+"','"+userid+"','"+commentbody+"');");
+        } catch (SQLException e) {
+            System.out.println("Failed to connect");
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Pair<String, String>> fetchComments(String postid){
+        System.out.println("inside the get user id portion");
+        String url = "jdbc:mysql://localhost:3306/libra";
+        String user = "root";
+        String password = "yh56$$hHFHD45";
+        List<Pair<String, String>> cmnts = new ArrayList<>();
+
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement st = conn.createStatement();
+            st.execute("SELECT * FROM comments where c_postid = '"+postid+"';");
+            ResultSet rs = st.getResultSet();
+            System.out.println("Connected to database comment fetching");
+            while(rs.next()){
+                String userid = rs.getString("c_userid");
+                String body = rs.getString("cmntbody");
+                Pair<String, String> p = new Pair<>(userid, body);
+                cmnts.add(p);
+            }
+        } catch (SQLException e) {
+            System.out.println("Failed to connect");
+            e.printStackTrace();
+        }
+        return cmnts;
     }
 }
 
