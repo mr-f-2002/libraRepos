@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
@@ -22,8 +23,6 @@ public class CommentPage implements Initializable {
     public static String postid;
     @FXML
     private TextArea cmntBody;
-
-
     @FXML
     private VBox container;
 
@@ -45,9 +44,12 @@ public class CommentPage implements Initializable {
             Label userid = new Label(ll.get(i).getKey());
             userid.setStyle("-fx-text-fill : white;" +
                             "-fx-font-size : 18");
-            Label comment = new Label(ll.get(i).getValue());
-            comment.setStyle("-fx-text-fill : white;" +
-                             "-fx-font-size : 15");
+            TextArea comment = new TextArea(ll.get(i).getValue());
+            comment.setStyle("-fx-font-size : 15");
+            comment.setEditable(false);
+            comment.setFocusTraversable(false);
+            comment.setWrapText(true);
+
             VBox vBox = new VBox();
             vBox.getChildren().add(userid);
             vBox.getChildren().add(comment);

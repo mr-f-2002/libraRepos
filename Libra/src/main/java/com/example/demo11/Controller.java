@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -31,6 +32,7 @@ public class Controller {
         System.out.println("UP");
         Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -49,6 +51,7 @@ public class Controller {
                 String userID = JDBC.getUserId(username.getText());
                 wc.setData(username.getText(), userID);
                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                stage.setResizable(false);
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
@@ -75,11 +78,20 @@ public class Controller {
         else {
             if(JDBC.checkUsernameAndMail(username, mail) == false)
                 signupError.setText("username or email already exists");
+            else if(UTILITY.checkStudentId(id) == false)
+                signupError.setText("Student ID can contain numbers only!");
+            else if(UTILITY.checkEmail(mail) == false)
+                signupError.setText("Invalid email !!!");
+            else if(UTILITY.checkUsername(username)==false)
+                signupError.setText("username can contain only lowercase letters, numbers and underscore symbol");
+            else if(UTILITY.checkPassword(pas1) == false)
+                signupError.setText("Password is not strong enough!");
             else {
                 pas1 = UTILITY.encrypt(pas1);
                 JDBC.EnterData(fn, ln, id, department, mail, username, pas1);
                 Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setResizable(false);
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
@@ -95,6 +107,7 @@ public class Controller {
         if(alert.showAndWait().get() == ButtonType.OK) {
             Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setResizable(false);
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

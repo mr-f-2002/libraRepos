@@ -20,19 +20,33 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Structure implements Initializable {
-    @FXML private Label category;
-    @FXML private Label cmntCount;
-    @FXML private Label date;
-    @FXML private ToggleButton dislikeBtn;
-    @FXML private Label dislikeCount;
-    @FXML private ImageView dislikeImg;
-    @FXML private ToggleButton likeBtn;
-    @FXML private Label likeCount;
-    @FXML private ImageView likeImg;
-    @FXML private TextArea post_body;
-    @FXML private Label user_id;
-    @FXML private Label postId;
+    @FXML
+    private Label category;
+    @FXML
+    private Label cmntCount;
+    @FXML
+    private Label date;
+    @FXML
+    private ToggleButton dislikeBtn;
+    @FXML
+    private Label dislikeCount;
+    @FXML
+    private ImageView dislikeImg;
+    @FXML
+    private ToggleButton likeBtn;
+    @FXML
+    private Label likeCount;
+    @FXML
+    private ImageView likeImg;
+    @FXML
+    private TextArea post_body;
+    @FXML
+    private Label user_id;
+    @FXML
+    private Label postId;
     public static String userID;
+
+
     @FXML
     void openCmntWindow(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("commentPage.fxml"));
@@ -48,12 +62,12 @@ public class Structure implements Initializable {
 
 
     @FXML
-    void dislikeBtnClick(ActionEvent event) {
+    void dislikeBtnClick(ActionEvent event) throws IOException {
         if(dislikeBtn.isSelected()==true)
         {
             Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
             dislikeImg.setImage(image);
-            JDBC.insertDislike(user_id.getText(), postId.getText());
+            JDBC.insertDislike(userID, postId.getText());
         }
         else {
             Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
@@ -61,7 +75,9 @@ public class Structure implements Initializable {
         }
         Image img = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
         likeImg.setImage(img);
+        welcomepageController wc = new welcomepageController();
     }
+
 
     @FXML
     void likeBtnClick(ActionEvent event) throws IOException {
@@ -70,7 +86,6 @@ public class Structure implements Initializable {
             Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
             likeImg.setImage(image);
             System.out.println(postId.getText());
-            //System.out.println("the post ID is : " + this.postId.getText());
             JDBC.insertLike(userID, postId.getText());
         }
         else {
@@ -80,6 +95,8 @@ public class Structure implements Initializable {
         Image img = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
         dislikeImg.setImage(img);
     }
+
+
     public void settingData(postUnit p){
         user_id.setText(p.getUserid());
         category.setText(p.getCategory());
@@ -89,10 +106,17 @@ public class Structure implements Initializable {
         dislikeCount.setText(String.valueOf(p.getDislikeCount()));
         cmntCount.setText(String.valueOf(p.getCmntCount()));
         postId.setText(p.getPostId());
+        Image image = new Image(p.getLikeImgUrl());
+        likeImg.setImage(image);
+        Image image1 = new Image(p.getDislikeImgUrl());
+        dislikeImg.setImage(image1);
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+
 }

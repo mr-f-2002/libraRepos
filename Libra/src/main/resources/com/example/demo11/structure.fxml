@@ -47,7 +47,7 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </HBox>
-      <TextArea fx:id="post_body" editable="false" minHeight="200.0" prefHeight="200.0" prefWidth="190.0" text="sjfddoij">
+      <TextArea fx:id="post_body" editable="false" maxHeight="1.7976931348623157E308" maxWidth="830.0" minHeight="-Infinity" minWidth="830.0" prefHeight="200.0" prefWidth="830.0" text="sjfddoij">
          <font>
             <Font name="Calibri" size="14.0" />
          </font>

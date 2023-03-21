@@ -19,11 +19,17 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class welcomepageController implements Initializable{
-    @FXML private VBox container;
-    @FXML private Label userId, userName;
-    @FXML private Stage stage;
-    @FXML private Scene scene;
-    @FXML private Parent root;
+    @FXML
+    private VBox container;
+    @FXML
+    private Label userId, userName;
+    @FXML
+    private Stage stage;
+    @FXML
+    private Scene scene;
+    @FXML
+    private Parent root;
+
     @FXML
     void addPost(ActionEvent event) throws IOException {
         System.out.println("UP");
@@ -37,17 +43,12 @@ public class welcomepageController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     void loadHome(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
-        root = loader.load();
-        welcomepageController wc = loader.getController();
-        wc.setData(userName.getText(), userId.getText());
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        homepage(event);
     }
+
     @FXML
     void loadProfile(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
@@ -56,13 +57,16 @@ public class welcomepageController implements Initializable{
         pp.initialize(null, null, userId.getText());
         pp.setData(userName.getText(), userId.getText());
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     void searchPost(ActionEvent event) {
     }
+
     @FXML
     void setData(String s, String s2) {
         userName.setText(s);
@@ -87,5 +91,18 @@ public class welcomepageController implements Initializable{
             }
         }
     }
+    @FXML
+    public void homepage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
+        Parent root = loader.load();
+        welcomepageController wc = loader.getController();
+        wc.setData(userName.getText(), userId.getText());
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
 

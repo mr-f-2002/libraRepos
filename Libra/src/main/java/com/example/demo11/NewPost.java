@@ -50,6 +50,7 @@ public class NewPost implements Initializable {
             welcomepageController wc = loader.getController();
             wc.setData(userName.getText(), userId.getText());
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage.setResizable(false);
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -76,6 +77,7 @@ public class NewPost implements Initializable {
         welcomepageController wc = loader.getController();
         wc.setData(userName.getText(), userId.getText());
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
