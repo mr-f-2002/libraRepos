@@ -44,7 +44,6 @@ public class Structure implements Initializable {
     private Label user_id;
     @FXML
     private Label postId;
-    public static String userID;
 
 
     @FXML
@@ -67,7 +66,9 @@ public class Structure implements Initializable {
         {
             Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
             dislikeImg.setImage(image);
-            JDBC.insertDislike(userID, postId.getText());
+            JDBC.insertDislike(welcomepageController.USERID, postId.getText());
+            welcomepageController wc = new welcomepageController();
+            wc.homepage(event, welcomepageController.USERNAME, welcomepageController.USERID);
         }
         else {
             Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
@@ -75,7 +76,6 @@ public class Structure implements Initializable {
         }
         Image img = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
         likeImg.setImage(img);
-        welcomepageController wc = new welcomepageController();
     }
 
 
@@ -86,7 +86,9 @@ public class Structure implements Initializable {
             Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
             likeImg.setImage(image);
             System.out.println(postId.getText());
-            JDBC.insertLike(userID, postId.getText());
+            JDBC.insertLike(welcomepageController.USERID, postId.getText());
+            welcomepageController wc = new welcomepageController();
+            wc.homepage(event, welcomepageController.USERNAME, welcomepageController.USERID);
         }
         else {
             Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");

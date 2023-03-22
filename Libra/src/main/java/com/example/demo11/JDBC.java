@@ -1,6 +1,5 @@
 package com.example.demo11;
 import Model.postUnit;
-import javafx.print.PageOrientation;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -8,11 +7,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 import java.sql.*;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SimpleTimeZone;
 
 public class JDBC {
     public static void EnterData(String firstname, String lastname, String studentid, String department, String email, String username, String pass) throws SQLException, IOException
@@ -159,7 +156,7 @@ public class JDBC {
                 set.setDislikeCount(p.get(1));
                 set.setCmntCount(p.get(2));
 
-                int imgSetter = JDBC.isLikedOrDisliked(rs.getString("p_userid"), rs.getString("postid"));
+                int imgSetter = JDBC.isLikedOrDisliked(rs.getString("postid"));
                 if(imgSetter == 1) {
                     set.setLikeImgUrl("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
                     set.setDislikeImgUrl("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
@@ -176,6 +173,7 @@ public class JDBC {
             System.out.println("Failed to connect");
             e.printStackTrace();
         }
+        System.out.println("Extracted total posts -> " + setPost.size());
         return setPost;
     }
 
@@ -205,7 +203,7 @@ public class JDBC {
                 set.setDislikeCount(p.get(1));
                 set.setCmntCount(p.get(2));
 
-                int imgSetter = JDBC.isLikedOrDisliked(rs.getString("p_userid"), rs.getString("postid"));
+                int imgSetter = JDBC.isLikedOrDisliked(rs.getString("postid"));
                 if(imgSetter == 1) {
                     set.setLikeImgUrl("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
                     set.setDislikeImgUrl("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
@@ -263,7 +261,7 @@ public class JDBC {
         return p;
     }
 
-    public static Integer isLikedOrDisliked(String userID, String postID){
+    public static Integer isLikedOrDisliked(String postID){
         String url = "jdbc:mysql://localhost:3306/libra";
         String user = "root";
         String password = "yh56$$hHFHD45";
@@ -273,11 +271,11 @@ public class JDBC {
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement st = conn.createStatement();
-            st.execute("select count(*) from likes where userid = "+userID+" and  postid = "+postID+";");
+            st.execute("select count(*) from likes where userid = "+welcomepageController.USERID+" and  postid = "+postID+";");
             ResultSet rs = st.getResultSet();
             if(rs.next())
                 likeCount = rs.getInt("count(*)");
-            st.execute("select count(*) from dislikes where d_userid = "+userID+" and d_postid = "+postID+";");
+            st.execute("select count(*) from dislikes where d_userid = "+welcomepageController.USERID+" and d_postid = "+postID+";");
             rs = st.getResultSet();
             if(rs.next())
                 dislikeCount = rs.getInt("count(*)");
@@ -285,7 +283,7 @@ public class JDBC {
             System.out.println("Failed to connect isLikesOrDisliked");
             e.printStackTrace();
         }
-        System.out.println("LIKE AND DISLIKE COUNTING RESULT -> "+likeCount+"  "+dislikeCount);
+        //System.out.println("LIKE AND DISLIKE COUNTING RESULT -> "+likeCount+"  "+dislikeCount);
         if(likeCount == 0 && dislikeCount!= 0){
             return 2;
         } else if(likeCount !=0 && dislikeCount == 0){
@@ -322,7 +320,7 @@ public class JDBC {
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement st = conn.createStatement();
-            st.execute("insert into dislikes values('"+userID+"','"+postID+"')");
+            st.execute("insert into dislikes values('"+welcomepageController.USERID+"','"+postID+"')");
             st.execute("delete from likes where userid = "+userID+" and postid = "+postID+";");
         } catch (SQLException e) {
             System.out.println("Failed to connect");

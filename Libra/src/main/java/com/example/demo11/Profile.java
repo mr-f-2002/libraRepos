@@ -57,6 +57,7 @@ public class Profile implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
         Parent root = loader.load();
         welcomepageController wc = loader.getController();
+        wc.initialize(null, null, welcomepageController.USERNAME, welcomepageController.USERID);
         wc.setData(userName.getText(), userId.getText());
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

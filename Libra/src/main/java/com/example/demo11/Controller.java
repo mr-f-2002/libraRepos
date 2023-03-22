@@ -49,6 +49,7 @@ public class Controller {
                 root = loader.load();
                 welcomepageController wc = loader.getController();
                 String userID = JDBC.getUserId(username.getText());
+                wc.initialize(null, null, username.getText(), userID);
                 wc.setData(username.getText(), userID);
                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 stage.setResizable(false);

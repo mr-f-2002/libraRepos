@@ -17,6 +17,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.SimpleTimeZone;
 
 public class welcomepageController implements Initializable{
     @FXML
@@ -29,6 +30,8 @@ public class welcomepageController implements Initializable{
     private Scene scene;
     @FXML
     private Parent root;
+    public static String USERID;
+    public static String USERNAME;
 
     @FXML
     void addPost(ActionEvent event) throws IOException {
@@ -46,7 +49,7 @@ public class welcomepageController implements Initializable{
 
     @FXML
     void loadHome(ActionEvent event) throws IOException {
-        homepage(event);
+        homepage(event, USERNAME, USERID);
     }
 
     @FXML
@@ -55,7 +58,7 @@ public class welcomepageController implements Initializable{
         root = loader.load();
         Profile pp = loader.getController();
         pp.initialize(null, null, userId.getText());
-        pp.setData(userName.getText(), userId.getText());
+        pp.setData(USERNAME, USERID);
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
@@ -71,12 +74,14 @@ public class welcomepageController implements Initializable{
     void setData(String s, String s2) {
         userName.setText(s);
         userId.setText(s2);
-        Structure.userID = s2;
+        USERNAME = s;
+        USERID = s2;
+        System.out.println("the user id now is -> " + USERID);
     }
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle, String user_name, String user_id){
+        USERNAME = user_name;
+        USERID = user_id;
         List<postUnit> ll = new ArrayList<>(JDBC.allPost());
         int n = ll.size();
         for(int i=0; i<n; i++) {
@@ -91,12 +96,17 @@ public class welcomepageController implements Initializable{
             }
         }
     }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
     @FXML
-    public void homepage(ActionEvent event) throws IOException {
+    public void homepage(ActionEvent event, String s1, String s2) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
         Parent root = loader.load();
         welcomepageController wc = loader.getController();
-        wc.setData(userName.getText(), userId.getText());
+        wc.initialize(null, null, USERNAME, USERID);
+        wc.setData(s1, s2);
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         Scene scene = new Scene(root);

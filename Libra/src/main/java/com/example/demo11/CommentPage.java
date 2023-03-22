@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class CommentPage implements Initializable {
-    private String userid = Structure.userID;
+    private String userid = welcomepageController.USERID;
     public static String postid;
     @FXML
     private TextArea cmntBody;
@@ -28,8 +28,8 @@ public class CommentPage implements Initializable {
 
     @FXML
     void uploadCmnt(ActionEvent event) {
-        System.out.println("post that I want to insert comment to -> "+postid);
-        System.out.println("user that I want to comment as -> "+userid);
+        //System.out.println("post that I want to insert comment to -> "+postid);
+        //System.out.println("user that I want to comment as -> "+userid);
         JDBC.insertComment(userid, postid, cmntBody.getText());
         System.out.println("Comment inserted");
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
