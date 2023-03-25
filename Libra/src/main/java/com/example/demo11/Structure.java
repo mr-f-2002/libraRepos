@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
@@ -24,6 +25,8 @@ public class Structure implements Initializable {
     private Label category;
     @FXML
     private Label cmntCount;
+    @FXML
+    private Button deleteBtn1;
     @FXML
     private Label date;
     @FXML
@@ -45,7 +48,12 @@ public class Structure implements Initializable {
     @FXML
     private Label postId;
 
+    @FXML
+    void opendeleteWindow(ActionEvent event) {
+        System.out.println("TOR MAAA");
+       JDBC.deletingPost(postId.getText());
 
+    }
     @FXML
     void openCmntWindow(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("commentPage.fxml"));
@@ -64,17 +72,17 @@ public class Structure implements Initializable {
     void dislikeBtnClick(ActionEvent event) throws IOException {
         if(dislikeBtn.isSelected()==true)
         {
-            Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
+            Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
             dislikeImg.setImage(image);
             JDBC.insertDislike(welcomepageController.USERID, postId.getText());
             welcomepageController wc = new welcomepageController();
             wc.homepage(event, welcomepageController.USERNAME, welcomepageController.USERID);
         }
         else {
-            Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+            Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
             dislikeImg.setImage(image);
         }
-        Image img = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
+        Image img = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
         likeImg.setImage(img);
     }
 
@@ -83,18 +91,19 @@ public class Structure implements Initializable {
     void likeBtnClick(ActionEvent event) throws IOException {
         if(likeBtn.isSelected()==true)
         {
-            Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
+            Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
             likeImg.setImage(image);
             System.out.println(postId.getText());
             JDBC.insertLike(welcomepageController.USERID, postId.getText());
+
             welcomepageController wc = new welcomepageController();
             wc.homepage(event, welcomepageController.USERNAME, welcomepageController.USERID);
         }
         else {
-            Image image = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
+            Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
             likeImg.setImage(image);
         }
-        Image img = new Image("C:\\Users\\Nahin\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+        Image img = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
         dislikeImg.setImage(img);
     }
 

@@ -91,7 +91,7 @@ public class Profile implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle, String userId) {
         List<postUnit> list = new ArrayList<>(JDBC.myPost(userId));
         for(int i=0; i<list.size(); i++){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("structure.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("profstructure.fxml"));
             try {
                 VBox vBox = loader.load();
                 Structure ss = loader.getController();

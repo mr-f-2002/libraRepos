@@ -32,17 +32,17 @@
          </children></AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="75.0" prefHeight="64.0" prefWidth="205.0" style="-fx-background-color: #525252;">
          <children>
-            <ImageView fitHeight="35.0" fitWidth="35.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="178.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@search.png" />
                </image>
             </ImageView>
-            <TextField fx:id="searchBar" layoutX="40.0" layoutY="15.0" prefHeight="35.0" prefWidth="158.0" promptText="search" style="-fx-background-color: #434343; -fx-text-fill: #ffffff;">
+            <TextField fx:id="searchbar" layoutX="5.0" layoutY="15.0" prefHeight="35.0" prefWidth="158.0" promptText="search" style="-fx-background-color: #434343; -fx-text-fill: #ffffff;">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <Button fx:id="searchBtn" layoutX="-4.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchPost" opacity="0.0" prefHeight="35.0" prefWidth="35.0" />
+            <Button fx:id="searchBtn" layoutX="175.0" layoutY="17.0" mnemonicParsing="false" onAction="#searchPost" opacity="0.0" prefHeight="35.0" prefWidth="35.0" />
          </children>
       </AnchorPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="9.0" prefHeight="54.0" prefWidth="108.0" text="Libra" textFill="WHITE">
@@ -70,7 +70,7 @@
       <Button fx:id="home" layoutX="1132.0" layoutY="629.0" mnemonicParsing="false" onAction="#loadProfile" opacity="0.0" prefHeight="35.0" prefWidth="46.0" />
       <ScrollPane layoutX="238.0" layoutY="8.0" prefHeight="686.0" prefWidth="873.0" style="-fx-background: #525252;">
          <content>
-            <VBox fx:id="container" prefHeight="682.0" prefWidth="870.0" />
+            <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="682.0" prefWidth="870.0" />
          </content></ScrollPane>
    </children>
 </AnchorPane>

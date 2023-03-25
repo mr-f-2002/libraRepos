@@ -39,6 +39,8 @@ public class Controller {
     }
     @FXML
     protected void loginBtn(ActionEvent event) throws IOException, SQLException {
+
+
         if(username.getText().isBlank() == true || password.getText().isBlank() == true) {
             loginError.setText("Wrong username or password!!");
         }else {

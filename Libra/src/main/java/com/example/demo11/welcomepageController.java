@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -30,6 +31,8 @@ public class welcomepageController implements Initializable{
     private Scene scene;
     @FXML
     private Parent root;
+    @FXML
+    public TextField searchbar;
     public static String USERID;
     public static String USERNAME;
 
@@ -67,7 +70,48 @@ public class welcomepageController implements Initializable{
     }
 
     @FXML
-    void searchPost(ActionEvent event) {
+    void searchPost(ActionEvent event) throws IOException {
+        String keyword = searchbar.getText();
+
+        if(!keyword.isEmpty()) {
+            container.getChildren().clear();
+
+            List<postUnit> ll = new ArrayList<>(JDBC.searchPost(keyword));
+
+            int n = ll.size();
+
+//            root = FXMLLoader.load(getClass().getResource("welcomepage.fxml"));
+//            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            stage.setResizable(false);
+//            scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.show();
+
+            if(n==0){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("errortext.fxml"));
+
+                try {
+                    Label lab = loader.load();
+                    lab.setText("No Search Result Found!");
+                    container.getChildren().add(lab);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                return;
+            }
+
+            for (int i = 0; i < n; i++) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("structure.fxml"));
+                try {
+                    VBox vBox = loader.load();
+                    Structure ss = loader.getController();
+                    ss.settingData(ll.get(i));
+                    container.getChildren().add(vBox);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 
     @FXML
@@ -77,6 +121,18 @@ public class welcomepageController implements Initializable{
         USERNAME = s;
         USERID = s2;
         System.out.println("the user id now is -> " + USERID);
+    }
+
+    public void showconfirm(){
+        FXMLLoader labelloader = new FXMLLoader(getClass().getResource("errortext.fxml"));
+
+        try {
+            Label lab1 = labelloader.load();
+            lab1.setText("Your post has been uploaded!");
+            container.getChildren().add(lab1);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle, String user_name, String user_id){

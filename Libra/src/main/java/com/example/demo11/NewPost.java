@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class NewPost implements Initializable {
@@ -48,6 +49,7 @@ public class NewPost implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
             root = loader.load();
             welcomepageController wc = loader.getController();
+            wc.initialize (null,null,userName.getText(),userId.getText());
             wc.setData(userName.getText(), userId.getText());
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setResizable(false);
@@ -63,24 +65,29 @@ public class NewPost implements Initializable {
         String userID = userId.getText();
         String categoryNAME = category.getValue() ;
         String postId = UTILITY.generateString();
-        LocalDate currentDate = LocalDate.now();
+        LocalDateTime currentDate = LocalDateTime.now();
         JDBC.insertNewPost(postId, postBODY, currentDate, userID, categoryNAME);
         System.out.println(postId +" "+ userID +" "+ postBODY +" "+ categoryNAME +" "+ currentDate);
 
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
+
         try {
             root = loader.load();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         welcomepageController wc = loader.getController();
+        wc.initialize(null,null,userName.getText(), userId.getText() );
         wc.setData(userName.getText(), userId.getText());
+
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
+        wc.showconfirm();
+        wc.initialize(null, null, userName.getText(), userId.getText());
     }
 }
