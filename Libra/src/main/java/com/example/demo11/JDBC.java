@@ -149,7 +149,7 @@ public class JDBC {
                 postUnit set = new postUnit();
                 set.setUserid(rs.getString("p_userid"));
                 set.setPostBody(rs.getString("body"));
-                set.setDate(rs.getDate("creationdate").toLocalDate().toString());
+                set.setDate(rs.getTimestamp("creationdate").toLocalDateTime().toString());
                 set.setPostId(rs.getString("postid"));
                 set.setCategory(rs.getString("category"));
 
