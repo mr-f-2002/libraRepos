@@ -25,7 +25,7 @@ public class UTILITY {
         return output;
     }
     public static boolean checkEmail(String email) {
-        final String EMAIL_REGEX = "^[a-z0-9+.-]+@[a-z0-9.-]+$";
+        final String EMAIL_REGEX = "^[a-z0-9+.-]+@iut-dhaka\\.edu$";
         Pattern pattern = Pattern.compile(EMAIL_REGEX);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
@@ -45,7 +45,7 @@ public class UTILITY {
         String pattern = "^[a-z0-9_]+$";
         return username.matches(pattern);
     }
-    private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$";
+    private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!*]).{8,}$";
     public static boolean checkPassword(String password) {
         return password.matches(PASSWORD_PATTERN);
     }

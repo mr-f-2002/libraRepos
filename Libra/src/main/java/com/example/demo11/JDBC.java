@@ -1,21 +1,19 @@
 package com.example.demo11;
+
 import Model.postUnit;
 import javafx.util.Pair;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-
 import java.sql.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JDBC {
     public static void EnterData(String firstname, String lastname, String studentid, String department, String email, String username, String pass) throws SQLException, IOException
     {
-            System.out.println("inside the enter data portion");
+            System.out.println("Inside the enter data portion");
 //            String url = "jdbc:mysql://localhost:3306/libra";
 //            String user = "root";
 //            String password = "yh56$$hHFHD45";
@@ -24,7 +22,7 @@ public class JDBC {
             try {
 
                 Connection conn= connection.fastconnect();
-                System.out.println("Connected to database!! in enter data");
+                System.out.println("Connected to database!! In Enter data");
                 Statement st = conn.createStatement();
                 st.execute("insert into userdata values('"+firstname+"','"+lastname+"', '"+studentid+"', '"+department+"', '"+email+"', '"+username+"', '"+pass+"', '"+userId+"')");
             } catch (SQLException e) {
@@ -42,9 +40,13 @@ public class JDBC {
         try {
             Connection conn= connection.fastconnect();
             System.out.println("Connected to database!!");
-            Statement statement = conn.createStatement();
-            rs = statement.executeQuery("SELECT * FROM userdata WHERE username = '"+Username+"' OR email = '"+Email+"'");
+            String sql = "SELECT * FROM userdata WHERE username = ? OR email = ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, Username);
+            statement.setString(2, Email);
+             rs = statement.executeQuery();
             System.out.println("rs executed");
+
         } catch (SQLException e) {
             System.out.println("Failed to connect");
             e.printStackTrace();
@@ -149,6 +151,13 @@ public class JDBC {
                 postUnit set = new postUnit();
                 set.setUserid(rs.getString("p_userid"));
                 set.setPostBody(rs.getString("body"));
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+               // String formattedDateTime = dateTime.format(formatter);
+
+
+
+                //set.setDate(String.valueOf(LocalDateTime.parse(rs.getTimestamp("creationdate").toLocalDateTime().toString(), formatter)));
+                //set.setTimestamp(index, Timestamp.valueOf(LocalDateTime.parse(rs.getTimestamp("birthday").toLocalDateTime().toString(), formatter)));
                 set.setDate(rs.getTimestamp("creationdate").toLocalDateTime().toString());
                 set.setPostId(rs.getString("postid"));
                 set.setCategory(rs.getString("category"));
@@ -187,16 +196,10 @@ public class JDBC {
      System.out.println(posttId);
      try {
          Connection conn= connection.fastconnect();
-         System.out.println("TOR MAAA com");
          //System.out.println("Inside user connection");
          Statement st = conn.createStatement();
          st.execute(" DELETE FROM Posts WHERE postid LIKE '%" + posttId + "%'") ;
-         System.out.println("TOR MAAA deleted");
-       //  PreparedStatement statement = conn.prepareStatement(sql);
-        // System.out.println("TOR MAAA quert");
-       //  statement.setString(1, posttId);
-       //  System.out.println("TOR MAAA quert2");
-      //   int rowsDeleted = statement.executeUpdate();
+      ;
 
      } catch (SQLException e) {
          System.out.println("Failed to connect");
@@ -209,7 +212,7 @@ public class JDBC {
 //        String url = "jdbc:mysql://localhost:3306/libra";
 //        String user = "root";
 //        String password = "yh56$$hHFHD45";
-        List<postUnit> setPost = new ArrayList<>();
+           List<postUnit> setPost = new ArrayList<>();
 
         try {
             Connection conn= connection.fastconnect();

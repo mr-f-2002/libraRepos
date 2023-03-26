@@ -1,6 +1,7 @@
 package com.example.demo11;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class setter {
     private String userName;
@@ -26,5 +27,5 @@ public class setter {
     public void setLikeCount(int likeCount) {this.likeCount = likeCount;}
     public void setDislikeCount(int dislikeCount) {this.dislikeCount = dislikeCount;}
     public String getPostID() {return postID;}
-    public void setPostID(String porstID) {this.postID = porstID;}
+    public void setPostID(String postID) {this.postID = postID;}
 }

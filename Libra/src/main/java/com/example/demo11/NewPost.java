@@ -28,7 +28,7 @@ public class NewPost implements Initializable {
     @FXML private Parent root;
     @FXML private Stage stage;
     @FXML private Scene scene;
-    private String[] categories = {"Hostel","Politics","Canteen","Rocket","Faculty","Confession","Others"};
+    private String[] categories = {"Hostel","Poetry/Literature","Canteen","Reviews","Faculty","Confession","Study","Entertainment","Others"};
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         category.getItems().addAll(categories);

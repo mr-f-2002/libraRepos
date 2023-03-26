@@ -66,7 +66,7 @@ public class Controller {
 
     @FXML
     protected void signup(ActionEvent event) throws SQLException, IOException {   //signup button in signup page
-        System.out.println("signup Button Pressed");
+        System.out.println("Signup Button Pressed");
         String fn = firstName.getText();
         String ln = lastName.getText();
         String id = sId.getText();
@@ -88,7 +88,7 @@ public class Controller {
             else if(UTILITY.checkUsername(username)==false)
                 signupError.setText("username can contain only lowercase letters, numbers and underscore symbol");
             else if(UTILITY.checkPassword(pas1) == false)
-                signupError.setText("Password is not strong enough!");
+                signupError.setText("Password is not Strong Enough!");
             else {
                 pas1 = UTILITY.encrypt(pas1);
                 JDBC.EnterData(fn, ln, id, department, mail, username, pas1);
