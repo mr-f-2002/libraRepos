@@ -86,6 +86,62 @@ public class Profile implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    void seeSavedPost(ActionEvent event) throws IOException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
+//        Parent root = null;
+//        try {
+//            root = loader.load();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        welcomepageController wc = loader.getController();
+//        wc.initialize(null, null, welcomepageController.USERNAME, welcomepageController.USERID);
+//        wc.setData(userName.getText(), userId.getText());
+        JDBC.MysavedPost(userId.getText());
+
+        container.getChildren().clear();
+
+        List<postUnit> ll = new ArrayList<>(JDBC.numberofsaved(userId.getText()));
+
+        int n = ll.size();
+
+
+
+        if(n==0){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("errortext.fxml"));
+
+            try {
+                Label lab = loader.load();
+                lab.setText("No Search Result Found!");
+                container.getChildren().add(lab);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return;
+        }
+
+        for (int i = 0; i < n; i++) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("structure.fxml"));
+            try {
+                VBox vBox = loader.load();
+                Structure ss = loader.getController();
+                ss.settingData(ll.get(i));
+                container.getChildren().add(vBox);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+
+
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        stage.setResizable(false);
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+
 
 
     public void initialize(URL url, ResourceBundle resourceBundle, String userId) {

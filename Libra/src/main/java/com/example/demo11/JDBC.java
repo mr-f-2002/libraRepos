@@ -133,7 +133,112 @@ public class JDBC {
             e.printStackTrace();
         }
     }
+    public static List<postUnit> MysavedPost(String myuser){
 
+        System.out.println("inside the save user id portion");
+//        String url = "jdbc:mysql://localhost:3306/libra";
+//        String user = "root";
+//        String password = "yh56$$hHFHD45";
+        List<postUnit> setPost = new ArrayList<>();
+
+        try {
+            Connection conn= connection.fastconnect();
+            Statement st = conn.createStatement();
+            st.execute("select posts.* from posts where postid in (select s_postid from savetable where s_userid='"+myuser+"')");
+            ResultSet rs = st.getResultSet();
+            System.out.println("Connected to database!! in userID -_-");
+            while(rs.next()){
+                postUnit set = new postUnit();
+                set.setUserid(rs.getString("p_userid"));
+                set.setPostBody(rs.getString("body"));
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                // String formattedDateTime = dateTime.format(formatter);
+
+
+
+                //set.setDate(String.valueOf(LocalDateTime.parse(rs.getTimestamp("creationdate").toLocalDateTime().toString(), formatter)));
+                //set.setTimestamp(index, Timestamp.valueOf(LocalDateTime.parse(rs.getTimestamp("birthday").toLocalDateTime().toString(), formatter)));
+                set.setDate(rs.getTimestamp("creationdate").toLocalDateTime().toString());
+                set.setPostId(rs.getString("postid"));
+                set.setCategory(rs.getString("category"));
+
+                List<Integer> p = JDBC.like_dislike_count(rs.getString("postid"));
+                set.setLikeCount(p.get(0));
+                set.setDislikeCount(p.get(1));
+                set.setCmntCount(p.get(2));
+
+                int imgSetter = JDBC.isLikedOrDisliked(rs.getString("postid"));
+                if(imgSetter == 1) {
+                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
+                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                } else if(imgSetter == 2){
+                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
+                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
+                } else{
+
+                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
+                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                }
+                setPost.add(set);
+            }
+        } catch (SQLException e) {
+            System.out.println("Failed to connect");
+            e.printStackTrace();
+        }
+        System.out.println("Extracted total posts -> " + setPost.size());
+        return setPost;
+    }
+    public static  List<postUnit>numberofsaved(String keyword){
+        System.out.println("inside the search post portion");
+//        String url = "jdbc:mysql://localhost:3306/libra";
+//        String user = "root";
+//        String password = "yh56$$hHFHD45";
+        List<postUnit> setPost = new ArrayList<>();
+
+        try {
+            Connection conn= connection.fastconnect();
+            System.out.println("Inside user connection");
+            Statement st = conn.createStatement();
+            // System.out.println("Inside connection");
+            st.execute("select posts.* from posts where postid in (select s_postid from savetable where s_userid='"+keyword+"') order by creationdate desc ");
+            System.out.println("Inside query");
+            ResultSet rs = st.getResultSet();
+            System.out.println("Connected to database!! in userID -_-");
+            while(rs.next()){
+                postUnit set = new postUnit();
+                set.setUserid(rs.getString("p_userid"));
+                set.setPostBody(rs.getString("body"));
+                set.setDate(rs.getTimestamp("creationdate").toLocalDateTime().toString());
+                set.setPostId(rs.getString("postid"));
+                set.setCategory(rs.getString("category"));
+
+                List<Integer> p = JDBC.like_dislike_count(rs.getString("postid"));
+                set.setLikeCount(p.get(0));
+                set.setDislikeCount(p.get(1));
+                set.setCmntCount(p.get(2));
+
+                int imgSetter = JDBC.isLikedOrDisliked(rs.getString("postid"));
+                if(imgSetter == 1) {
+                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
+                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                } else if(imgSetter == 2){
+                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
+                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
+                } else{
+
+                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
+                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                }
+                setPost.add(set);
+            }
+        } catch (SQLException e) {
+            System.out.println("Failed to connect");
+            e.printStackTrace();
+        }
+        System.out.println("Extracted total posts -> " + setPost.size());
+        return setPost;
+
+    }
     public static List<postUnit> allPost(){
         System.out.println("inside the get user id portion");
 //        String url = "jdbc:mysql://localhost:3306/libra";
@@ -275,7 +380,7 @@ public class JDBC {
                 postUnit set = new postUnit();
                 set.setUserid(rs.getString("p_userid"));
                 set.setPostBody(rs.getString("body"));
-                set.setDate(rs.getDate("creationdate").toLocalDate().toString());
+                set.setDate(rs.getTimestamp("creationdate").toLocalDateTime().toString());
                 set.setPostId(rs.getString("postid"));
                 set.setCategory(rs.getString("category"));
 
@@ -409,7 +514,20 @@ public class JDBC {
             e.printStackTrace();
         }
     }
+    public static void savingpost(String userID, String postid){
+//        String url = "jdbc:mysql://localhost:3306/libra";
+//        String user = "root";
+//        String password = "yh56$$hHFHD45";
 
+        try {
+            Connection conn= connection.fastconnect();
+            Statement st = conn.createStatement();
+            st.execute("insert into savetable values('"+userID+"','"+postid+"')");
+        } catch (SQLException e) {
+            System.out.println("Failed to connect");
+            e.printStackTrace();
+        }
+   }
     public static void insertComment(String userid, String postid, String commentbody){
 //        String url = "jdbc:mysql://localhost:3306/libra";
 //        String user = "root";

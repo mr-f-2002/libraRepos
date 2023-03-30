@@ -38,6 +38,8 @@ public class Structure implements Initializable {
     @FXML
     private ToggleButton likeBtn;
     @FXML
+    private Button savebutton;
+    @FXML
     private Label likeCount;
     @FXML
     private ImageView likeImg;
@@ -49,8 +51,13 @@ public class Structure implements Initializable {
     private Label postId;
 
     @FXML
+    void onclicksave(ActionEvent event) {
+        System.out.println(welcomepageController.USERID);
+      JDBC.savingpost(welcomepageController.USERID,postId.getText());
+    }
+    @FXML
     void opendeleteWindow(ActionEvent event) {
-        System.out.println("TOR MAAA");
+        System.out.println("hi");
        JDBC.deletingPost(postId.getText());
 
     }
