@@ -4,6 +4,7 @@ import Model.postUnit;
 import javafx.util.Pair;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.*;
@@ -73,12 +74,14 @@ public class JDBC {
             Connection conn= connection.fastconnect();
             System.out.println("Connected to database!!");
             Statement statement = conn.createStatement();
-            Password = UTILITY.encrypt(Password);
+            Password = UTILITY.hash(Password);
             rs = statement.executeQuery("SELECT * FROM userdata WHERE username = '"+Username+"' AND password = '"+Password+"'");
             System.out.println("rs executed");
         } catch (SQLException e) {
             System.out.println("Failed to connect");
             e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
         int size = 0;
         while(rs.next()){

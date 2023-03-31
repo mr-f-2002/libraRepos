@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class Controller {
@@ -65,7 +66,7 @@ public class Controller {
     }
 
     @FXML
-    protected void signup(ActionEvent event) throws SQLException, IOException {   //signup button in signup page
+    protected void signup(ActionEvent event) throws SQLException, IOException, NoSuchAlgorithmException {   //signup button in signup page
         System.out.println("Signup Button Pressed");
         String fn = firstName.getText();
         String ln = lastName.getText();
@@ -90,7 +91,7 @@ public class Controller {
             else if(UTILITY.checkPassword(pas1) == false)
                 signupError.setText("Password is not Strong Enough!");
             else {
-                pas1 = UTILITY.encrypt(pas1);
+                pas1 = UTILITY.hash(pas1);
                 JDBC.EnterData(fn, ln, id, department, mail, username, pas1);
                 Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
