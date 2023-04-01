@@ -5,14 +5,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.util.Pair;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.net.URL;
 import java.util.List;
@@ -28,6 +29,16 @@ public class CommentPage implements Initializable {
 
     @FXML
     void uploadCmnt(ActionEvent event) {
+
+        String title="CONFIRMATION";
+        String message=" YOUR COMMENT HAS BEEN UPLOADED\n ";
+        TrayNotification tray=new TrayNotification();
+        AnimationType type= AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.seconds(2));
         //System.out.println("post that I want to insert comment to -> "+postid);
         //System.out.println("user that I want to comment as -> "+userid);
         JDBC.insertComment(userid, postid, cmntBody.getText());

@@ -15,6 +15,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,7 +48,15 @@ public class Profile implements Initializable {
         Parent root = loader.load();
         NewPost np = loader.getController();
         np.setData(userName.getText(), userId.getText());
-
+        {String title="REDIRECTING";
+            String message="FEEL FREE TO SHARE YOUR THOUGHTS\n";
+            TrayNotification tray=new TrayNotification();
+            AnimationType type= AnimationType.POPUP;
+            tray.setAnimationType(type);
+            tray.setTitle(title);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.INFORMATION);
+            tray.showAndDismiss(Duration.seconds(1));}
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
@@ -59,6 +70,15 @@ public class Profile implements Initializable {
     void loadHome(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
         Parent root = loader.load();
+        String title="LIBRA";
+        String message="REDIRECTING TO HOME PAGE\n";
+        TrayNotification tray=new TrayNotification();
+        AnimationType type= AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.INFORMATION);
+        tray.showAndDismiss(Duration.seconds(1));
         welcomepageController wc = loader.getController();
         wc.initialize(null, null, welcomepageController.USERNAME, welcomepageController.USERID);
         wc.setData(userName.getText(), userId.getText());
@@ -83,6 +103,15 @@ public class Profile implements Initializable {
     void logout(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent root = loader.load();
+        String title="CONFIRMATION";
+        String message="LOG OUT SUCCESSFUL\n";
+        TrayNotification tray=new TrayNotification();
+        AnimationType type= AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.seconds(1));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
@@ -93,7 +122,7 @@ public class Profile implements Initializable {
     @FXML
     public void notificheck(ActionEvent event)  {
         Notifications notifications=Notifications.create();
-        notifications.text("LOGIN SUCCESSFUL ❤");
+        notifications.text("LOG IN SUCCESSFUL ❤");
         notifications.title("WELCOME TO LIBRA");
         notifications.darkStyle();
         notifications.showConfirm();

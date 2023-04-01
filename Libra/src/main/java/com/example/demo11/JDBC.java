@@ -293,6 +293,37 @@ public class JDBC {
         System.out.println("Extracted total posts -> " + setPost.size());
         return setPost;
     }
+
+    public static  void unsavingPost(String posttId) {
+        System.out.println(posttId);
+        try {
+            Connection conn = connection.fastconnect();
+            //System.out.println("Inside user connection");
+
+            PreparedStatement stmtSelect = conn.prepareStatement("SELECT * FROM savetable WHERE s_postid = ?");
+            PreparedStatement stmtDelete = conn.prepareStatement("DELETE FROM savetable WHERE s_postid = ?");
+            {
+
+                // Check if post ID exists
+                stmtSelect.setString(1, posttId);
+                ResultSet rs = stmtSelect.executeQuery();
+                if (rs.next()) {
+                    // Post ID exists, delete it
+                    stmtDelete.setString(1, posttId);
+                    int rowsDeleted = stmtDelete.executeUpdate();
+                    System.out.println(rowsDeleted + " row(s) deleted.");
+                } else {
+                    System.out.println("Post ID not found.");
+                }
+
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+
+
+    }
+
  public static  void deletingPost(String posttId){
 //     String url = "jdbc:mysql://localhost:3306/libra";
 //     String user = "root";

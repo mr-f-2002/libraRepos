@@ -125,8 +125,20 @@
                   <FontAwesomeIcon glyphName="SAVE" size="20" />
                </graphic>
                <HBox.margin>
-                  <Insets bottom="5.0" left="400.0" />
+                  <Insets bottom="5.0" left="350.0" />
                </HBox.margin></Button>
+            <Button fx:id="unsave" mnemonicParsing="false" onAction="#unsaveButton">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@unsave.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
          </children>
          <padding>
             <Insets left="10.0" top="10.0" />

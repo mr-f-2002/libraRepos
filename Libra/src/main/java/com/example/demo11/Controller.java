@@ -71,14 +71,14 @@ public class Controller {
     @FXML
     protected void signupBtn(ActionEvent event) throws IOException {  // signup button in login page
         System.out.println("UP");
-        String title="Sign In";
-        String message="Hello";
+        String title="WELCOME";
+        String message="LET'S SIGN UP FIRST";
         TrayNotification tray=new TrayNotification();
         AnimationType type= AnimationType.POPUP;
         tray.setAnimationType(type);
         tray.setTitle(title);
-        tray.setMessage(title);
-        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.NOTICE);
         tray.showAndDismiss(Duration.millis(300));
         Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -114,68 +114,34 @@ public class Controller {
         @FXML
     protected void loginBtn(ActionEvent event) throws IOException, SQLException {
 
-            String title="Sign In";
-            String message="Hello";
+        if(username.getText().isBlank() == true || password.getText().isBlank() == true) {
+            String title="LOGIN FAILED";
+            String message="Wrong username or password!!\n";
             TrayNotification tray=new TrayNotification();
             AnimationType type= AnimationType.POPUP;
             tray.setAnimationType(type);
             tray.setTitle(title);
-            tray.setMessage(title);
-            tray.setNotificationType(NotificationType.SUCCESS);
-            tray.showAndDismiss(Duration.millis(300));
-
-        if(username.getText().isBlank() == true || password.getText().isBlank() == true) {
-             title="Sign In";
-             message="Hello";
-//            TrayNotification tray=new TrayNotification();
-//            AnimationType type= AnimationType.POPUP;
-            tray.setAnimationType(type);
-            tray.setTitle(title);
-            tray.setMessage(title);
-            tray.setNotificationType(NotificationType.SUCCESS);
-            tray.showAndDismiss(Duration.millis(300));
-           loginError.setText("Wrong username or password!!");
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(2));
+         //  loginError.setText("Wrong username or password!!");
             //createNotification();
         }else {
             String usrname = username.getText();
             String pass = password.getText();
             if(JDBC.checkEntry(usrname, pass) == true) {
-                title="Sign In";
-                message="Hello";
-//            TrayNotification tray=new TrayNotification();
-//            AnimationType type= AnimationType.POPUP;
-                tray.setAnimationType(type);
-                tray.setTitle(title);
-                tray.setMessage(title);
-                tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.millis(300));
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
                 root = loader.load();
-                // createNotification();
 
-                title="Sign In";
-                message="Hello";
-//            TrayNotification tray=new TrayNotification();
-//            AnimationType type= AnimationType.POPUP;
-                tray.setAnimationType(type);
-                tray.setTitle(title);
-                tray.setMessage(title);
-                tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.millis(300));
+//                tray.setMessage(title);
+//                tray.setNotificationType(NotificationType.SUCCESS);
+//                tray.showAndDismiss(Duration.millis(300));
 
                 welcomepageController wc = loader.getController();
                 String userID = JDBC.getUserId(username.getText());
                 wc.initialize(null, null, username.getText(), userID);
-                title="Sign In";
-                message="Hello";
-//            TrayNotification tray=new TrayNotification();
-//            AnimationType type= AnimationType.POPUP;
-                tray.setAnimationType(type);
-                tray.setTitle(title);
-                tray.setMessage(title);
-                tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.millis(300));
+
 
                 wc.setData(username.getText(), userID);
                 stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -184,20 +150,29 @@ public class Controller {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-                title="Sign In";
-                message="Hello";
-//            TrayNotification tray=new TrayNotification();
-//            AnimationType type= AnimationType.POPUP;
+                String title="WElCOME TO LIBRA ❤";
+                String message= "LOGGED IN AS :"+"'"+username.getText()+"'"+"\n";
+                TrayNotification tray=new TrayNotification();
+                AnimationType type= AnimationType.POPUP;
                 tray.setAnimationType(type);
                 tray.setTitle(title);
-                tray.setMessage(title);
+                tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.millis(300));
+                tray.showAndDismiss(Duration.seconds(2));
+
 
 //
 //
              }else{
-                loginError.setText("Wrong username or password!!");
+                String title="LOGIN FAILED";
+                String message="Wrong username or password!!\n";
+                TrayNotification tray=new TrayNotification();
+                AnimationType type= AnimationType.POPUP;
+                tray.setAnimationType(type);
+                tray.setTitle(title);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.ERROR);
+                tray.showAndDismiss(Duration.seconds(2));
             }
         }
     }
@@ -216,30 +191,83 @@ public class Controller {
         String pas1 = sPassword.getText();
         String pas2 = sRepassword.getText();
         if(pas1.equals(pas2)==false) {
-
-            signupError.setText("Password must be identical for both fields!");
+            String title="SIGN UP FAILED";
+            String message="Password must be identical for both fields!\n";
+            TrayNotification tray=new TrayNotification();
+            AnimationType type= AnimationType.POPUP;
+            tray.setAnimationType(type);
+            tray.setTitle(title);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(2));
+         //   signupError.setText("Password must be identical for both fields!");
         }
         else {
             if(JDBC.checkUsernameAndMail(username, mail) == false)
-                signupError.setText("username or email already exists");
+            {String title="SIGNUP FAILED";
+            String message="Username or Email already exists\n";
+            TrayNotification tray=new TrayNotification();
+            AnimationType type= AnimationType.POPUP;
+            tray.setAnimationType(type);
+            tray.setTitle(title);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(1));}
+                //signupError.setText("username or email already exists");
             else if(UTILITY.checkStudentId(id) == false)
-                signupError.setText("Student ID can contain numbers only!");
-            else if(UTILITY.checkEmail(mail) == false)
-                signupError.setText("Invalid email !!!");
-            else if(UTILITY.checkUsername(username)==false)
-                signupError.setText("username can contain only lowercase letters, numbers and underscore symbol");
-            else if(UTILITY.checkPassword(pas1) == false)
-                signupError.setText("Password is not Strong Enough!");
-            else {
-                String title="Sign In Successful";
-                String message="Hello";
+            {String title="SIGNUP FAILED";
+                String message="Student ID can contain numbers only!\n";
                 TrayNotification tray=new TrayNotification();
                 AnimationType type= AnimationType.POPUP;
                 tray.setAnimationType(type);
                 tray.setTitle(title);
-                tray.setMessage(title);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.ERROR);
+                tray.showAndDismiss(Duration.seconds(2));}
+               // signupError.setText("Student ID can contain numbers only!");
+            else if(UTILITY.checkEmail(mail) == false)
+            {String title="SIGNUP FAILED";
+                String message="Invalid Email !!\n";
+                TrayNotification tray=new TrayNotification();
+                AnimationType type= AnimationType.POPUP;
+                tray.setAnimationType(type);
+                tray.setTitle(title);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.ERROR);
+                tray.showAndDismiss(Duration.seconds(2));}
+                //signupError.setText("Invalid email !!!");
+            else if(UTILITY.checkUsername(username)==false)
+            {String title="SIGNUP FAILED";
+                String message="username can contain only lowercase letters, numbers and underscore symbol\n";
+                TrayNotification tray=new TrayNotification();
+                AnimationType type= AnimationType.POPUP;
+                tray.setAnimationType(type);
+                tray.setTitle(title);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.ERROR);
+                tray.showAndDismiss(Duration.seconds(2));}
+               // signupError.setText("username can contain only lowercase letters, numbers and underscore symbol");
+            else if(UTILITY.checkPassword(pas1) == false)
+            {String title="SIGNUP FAILED";
+                String message="Password is not Strong Enough!\n";
+                TrayNotification tray=new TrayNotification();
+                AnimationType type= AnimationType.POPUP;
+                tray.setAnimationType(type);
+                tray.setTitle(title);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.ERROR);
+                tray.showAndDismiss(Duration.seconds(2));}
+               // signupError.setText("Password is not Strong Enough!");
+            else {
+                String title="Sign In Successful";
+                String message="Sign In Successful\n"+"UserName:"+"'"+username+"'";
+                TrayNotification tray=new TrayNotification();
+                AnimationType type= AnimationType.POPUP;
+                tray.setAnimationType(type);
+                tray.setTitle(title);
+                tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.millis(300));
+                tray.showAndDismiss(Duration.seconds(2));
 
                 pas1 = UTILITY.encrypt(pas1);
                 JDBC.EnterData(fn, ln, id, department, mail, username, pas1);
@@ -257,7 +285,7 @@ public class Controller {
         System.out.println("Cancel Button Pressed!!");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Sign Up Cancellation");
-        alert.setContentText("Do you want to quit signing up?");
+        alert.setContentText("Do you want to cancel signing up?");
         if(alert.showAndWait().get() == ButtonType.OK) {
             Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -285,7 +313,7 @@ public class Controller {
 
     public void Hide_pass(KeyEvent keyEvent) {
      help=password.getText();
-    txt_show.setText(help);
+     txt_show.setText(help);
         System.out.println("pass in hide: " + help);
     }
     public void show_pass(KeyEvent keyEvent) {

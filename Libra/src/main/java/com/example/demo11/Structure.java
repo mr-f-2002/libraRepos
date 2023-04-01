@@ -15,12 +15,17 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Structure implements Initializable {
+    public Button unsave;
     @FXML
     private Label category;
     @FXML
@@ -52,11 +57,39 @@ public class Structure implements Initializable {
 
     @FXML
     void onclicksave(ActionEvent event) {
+
+        String title="SAVED CONFIRM";
+        String message=""+"'"+postId.getText()+"'"+" POST ID HAS BEEN SAVED\n ";
+        TrayNotification tray=new TrayNotification();
+        AnimationType type= AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.seconds(2));
         System.out.println(welcomepageController.USERID);
-      JDBC.savingpost(welcomepageController.USERID,postId.getText());
+         JDBC.savingpost(welcomepageController.USERID,postId.getText());
+    }
+
+    @FXML
+     void unsaveButton(ActionEvent actionEvent) {
+        JDBC.unsavingPost(postId.getText());
+
+
     }
     @FXML
     void opendeleteWindow(ActionEvent event) {
+        String title="DELETE CONFIRM";
+        String message=""+"'"+postId.getText()+"'"+" POST ID HAS BEEN DELETED\n ";
+        TrayNotification tray=new TrayNotification();
+        AnimationType type= AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.seconds(2));
+
+
         System.out.println("hi");
        JDBC.deletingPost(postId.getText());
 
@@ -77,6 +110,15 @@ public class Structure implements Initializable {
 
     @FXML
     void dislikeBtnClick(ActionEvent event) throws IOException {
+        String title="Reacted";
+        String message=" REACT CONFIRMED\n ";
+        TrayNotification tray=new TrayNotification();
+        AnimationType type= AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.seconds(2));
         if(dislikeBtn.isSelected()==true)
         {
             Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
@@ -96,6 +138,15 @@ public class Structure implements Initializable {
 
     @FXML
     void likeBtnClick(ActionEvent event) throws IOException {
+        String title="Reacted";
+        String message=" REACT CONFIRMED\n ";
+        TrayNotification tray=new TrayNotification();
+        AnimationType type= AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.seconds(2));
         if(likeBtn.isSelected()==true)
         {
             Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
@@ -135,6 +186,7 @@ public class Structure implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
 
 
 }

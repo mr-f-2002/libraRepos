@@ -10,10 +10,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -48,6 +51,15 @@ public class NewPost implements Initializable {
         if(alert.showAndWait().get() == ButtonType.OK) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
             root = loader.load();
+            {   String title="INFO";
+                String message="POST HAS BEEN CANCELLED\n";
+                TrayNotification tray=new TrayNotification();
+                AnimationType type= AnimationType.POPUP;
+                tray.setAnimationType(type);
+                tray.setTitle(title);
+                tray.setMessage(message);
+                tray.setNotificationType(NotificationType.WARNING);
+                tray.showAndDismiss(Duration.seconds(2));}
             welcomepageController wc = loader.getController();
             wc.initialize (null,null,userName.getText(),userId.getText());
             wc.setData(userName.getText(), userId.getText());
@@ -70,6 +82,15 @@ public class NewPost implements Initializable {
         System.out.println(postId +" "+ userID +" "+ postBODY +" "+ categoryNAME +" "+ currentDate);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
+        String title="CONFIRMATION";
+        String message="YOUR POST HAS BEEN UPLOADED\n";
+        TrayNotification tray=new TrayNotification();
+        AnimationType type= AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.seconds(2));
 
         try {
             root = loader.load();

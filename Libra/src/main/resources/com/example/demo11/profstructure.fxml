@@ -116,16 +116,12 @@
                     </graphic>
                 </Button>
             <Button fx:id="deleteBtn1" mnemonicParsing="false" onAction="#opendeleteWindow">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@delete.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
                <HBox.margin>
-                  <Insets left="420.0" />
+                  <Insets left="350.0" />
                </HBox.margin>
+               <graphic>
+                  <FontAwesomeIcon glyphName="TRASH" size="20" />
+               </graphic>
             </Button>
             <Button fx:id="savebutton" mnemonicParsing="false" onAction="#onclicksave" prefHeight="48.0" prefWidth="34.0">
                <graphic>

@@ -113,6 +113,6 @@ public class Tools implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         webEngine = webview.getEngine();
-        webEngine.load("https://www.google.com");
+        webEngine.load("http://library.iutoic-dhaka.edu/main/");
     }
 }

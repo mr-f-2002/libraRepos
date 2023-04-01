@@ -12,6 +12,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.io.IOException;
 import java.net.URL;
@@ -91,12 +95,6 @@ public class welcomepageController implements Initializable{
 
             int n = ll.size();
 
-//            root = FXMLLoader.load(getClass().getResource("welcomepage.fxml"));
-//            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            stage.setResizable(false);
-//            scene = new Scene(root);
-//            stage.setScene(scene);
-//            stage.show();
 
             if(n==0){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("errortext.fxml"));
@@ -105,6 +103,15 @@ public class welcomepageController implements Initializable{
                     Label lab = loader.load();
                     lab.setText("No Search Result Found!");
                     container.getChildren().add(lab);
+                    String title="ALERT";
+                    String message="NO SEARCH RESULT FOUND\n";
+                    TrayNotification tray=new TrayNotification();
+                    AnimationType type= AnimationType.POPUP;
+                    tray.setAnimationType(type);
+                    tray.setTitle(title);
+                    tray.setMessage(message);
+                tray.setNotificationType(NotificationType.ERROR);
+                    tray.showAndDismiss(Duration.seconds(1));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
