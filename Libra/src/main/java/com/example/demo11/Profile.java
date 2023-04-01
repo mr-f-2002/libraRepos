@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
 import java.net.URL;
@@ -85,6 +88,19 @@ public class Profile implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void notificheck(ActionEvent event)  {
+        Notifications notifications=Notifications.create();
+        notifications.text("LOGIN SUCCESSFUL ❤");
+        notifications.title("WELCOME TO LIBRA");
+        notifications.darkStyle();
+        notifications.showConfirm();
+        notifications.position(Pos.BASELINE_CENTER);
+        notifications.hideAfter(Duration.seconds(3));
+        notifications.show();
+
     }
     @FXML
     void seeSavedPost(ActionEvent event) throws IOException {

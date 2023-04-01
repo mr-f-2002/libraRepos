@@ -1,21 +1,58 @@
 /*----------------------------------------------------------------------------*/
-#windows7 {
+
+/*<style>*/
+/*import url('https://fonts.googleapis.com/css2?family=Billabong&display=swap');*/
+/*!*<style>*!*/
+/*//@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Grand+Hotel&family=Roboto:wght@100&display=swap');*/
+/*!*</style>*!*/
+.fonting{
+    /*-fx-font-family:De;*/
+    /*-fx-font-family: Billabong;*/
+    /*-fx-font-family: "Felix Titling";*/
+    /*-fx-font-family: "Cooper Black";*/
+    /*-fx-font-family: "Times New Roman";*/
+    /*-fx-font-family: "Lucida Calligraphy";*/
+    -fx-font-family: 'Delicious Handrawn', cursive;
+    -fx-font-family: 'Grand Hotel', cursive;
+    -fx-font-family: 'Roboto', sans-serif;
+}
+
+#windows00 {
     -fx-background-color:
             #707070,
-            linear-gradient(#fcfcfc, #f3f3f3),
+            linear-gradient(#c4dbe8, #c4dee8),
             linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
+    -fx-font-family: Billabong;
     -fx-padding: 3 30 3 30;
     -fx-text-fill: black;
     -fx-font-size: 14px;
 }
 
-#windows7:hover {
+#windows7 {
     -fx-background-color:
-            #3c7fb1,
-            linear-gradient(#fafdfe, #e8f5fc),
-            linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+            #707070,
+            linear-gradient(#c4dbe8, #c4dee8),
+            linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-font-family: Billabong;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+}
+
+
+#windows7:hover {
+
+    -fx-background-color:
+
+
+
+            linear-gradient(#fafdfe, #c4dbe8),
+            linear-gradient(#9fc9e5 0%, #a6e0da 40%, #7decbf 100%);
+    transform: rotate(90deg);
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-padding: 3 30 3 30;
@@ -23,15 +60,20 @@
     -fx-font-size: 14px;
 }
 /*---------------------------------------------------------------------------*/
+#linear-grad{
+    -fx-background-color: radial-gradient(center 50% 50% , radius 12% , repeat, #fffaf0, #008080, #90ee90);
 
-#green
+}
+
+
+.green
 {
     -fx-background-color:
             linear-gradient(#f0ff35,#a9ff00),
             radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);
     -fx-background-radius: 6,5;
     -fx-background-insets: 0,1;
-
+    -fx-font-family: Billabong;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0.0, 0, 1);
     -fx-text-fill: #395306;
 }
@@ -43,7 +85,7 @@
             radial-gradient(center 50% -40%, radius 200%, #80c800 45%, #b8ee36 50%);
     -fx-background-radius: 6,5;
     -fx-background-insets: 0,1;
-
+    -fx-font-family: Billabong;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0.0, 0, 1);
     -fx-text-fill: #395306;
 
@@ -166,13 +208,13 @@
 
 /*----------------------------------------------------------------------------------------------------------------*/
 
-/*#windows{*/
-/*    -fx-text-fill: white;*/
-/*    -fx-font-family: "Arial Narrow";*/
-/*    -fx-font-weight: bold;*/
-/*    -fx-border-color:#168FC1;*/
-/*    -fx-background-color:#168FC1;*/
-/*}*/
+#windows{
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-border-color:#168FC1;
+    -fx-background-color:#168FC1;
+}
 
 #windows:hover{
     -fx-background-color:#0B729C;
@@ -184,11 +226,11 @@
 /*-------------------------------------------------------------------------------------------------------------*/
 
 #line{
-    -fx-text-fill: white;
-    -fx-font-family: "Arial Narrow";
+    -fx-text-fill: Black;
+    -fx-font-family: "Lucida Calligraphy";
     -fx-font-weight: bold;
-    -fx-background-color: linear-gradient(#035F85, #1385B4);
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-background-color: linear-gradient( #a6f0ff, #1385B4);
+   // -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 
 #line:hover{
@@ -200,17 +242,17 @@
 
 /*---------------------------------------------------------------------------------------------------------------*/
 
-/*#windows8 {*/
-/*    -fx-background-color:*/
-/*            #707070,*/
-/*            linear-gradient(#fcfcfc, #f3f3f3),*/
-/*            linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);*/
-/*    -fx-background-insets: 0,1,2;*/
-/*    -fx-background-radius: 3,2,1;*/
-/*    -fx-padding: 3 30 3 30;*/
-/*    -fx-text-fill: black;*/
-/*    -fx-font-size: 12px;*/
-/*}*/
+#windows8 {
+    -fx-background-color:
+            #707070,
+            linear-gradient(#fcfcfc, #f3f3f3),
+            linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+}
 #windows8:hover {
     -fx-background-color:
             #a6b5c9,
@@ -227,20 +269,20 @@
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
-/*#shiny {*/
-/*    -fx-background-color:*/
-/*            linear-gradient(#ffd65b, #e68400),*/
-/*            linear-gradient(#ffef84, #f2ba44),*/
-/*            linear-gradient(#ffea6a, #efaa22),*/
-/*            linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),*/
-/*            linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));*/
-/*    -fx-background-radius: 30;*/
-/*    -fx-background-insets: 0,1,2,3,0;*/
-/*    -fx-text-fill: #654b00;*/
-/*    -fx-font-weight: bold;*/
-/*    -fx-font-size: 14px;*/
-/*    -fx-padding: 10 20 10 20;*/
-/*}*/
+#shiny {
+    -fx-background-color:
+            linear-gradient(#ffd65b, #e68400),
+            linear-gradient(#ffef84, #f2ba44),
+            linear-gradient(#ffea6a, #efaa22),
+            linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+            linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
 #shiny:hover {
     -fx-background-color:
             linear-gradient(#e68400, #ffd65b),
@@ -258,13 +300,13 @@
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 
-/*#redline{*/
-/*    -fx-text-fill: red;*/
-/*    -fx-font-family: "Arial Narrow";*/
-/*    -fx-font-weight: bold;*/
-/*    -fx-border-color:red;*/
-/*    -fx-background-color:null;*/
-/*}*/
+#redline{
+    -fx-text-fill: red;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-border-color:red;
+    -fx-background-color:null;
+}
 
 #redline:hover{
     -fx-background-color: red;
@@ -279,21 +321,21 @@
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
-/*#yellow {*/
-/*    -fx-background-color:*/
-/*            #ecebe9,*/
-/*            rgba(0,0,0,0.05),*/
-/*            linear-gradient(#dcca8a, #c7a740),*/
-/*            linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),*/
-/*            linear-gradient(#f6ebbe, #e6c34d);*/
-/*    -fx-background-insets: 0,9 9 8 9,9,10,11;*/
-/*    -fx-background-radius: 50;*/
-/*    -fx-padding: 15 30 15 30;*/
-/*    -fx-font-family: "Helvetica";*/
-/*    -fx-font-size: 18px;*/
-/*    -fx-text-fill: #311c09;*/
-/*    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);*/
-/*}*/
+#yellow {
+    -fx-background-color:
+            #ecebe9,
+            rgba(0,0,0,0.05),
+            linear-gradient(#dcca8a, #c7a740),
+            linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+            linear-gradient(#f6ebbe, #e6c34d);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-padding: 15 30 15 30;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 18px;
+    -fx-text-fill: #311c09;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
 
 #yellow Text {
     -fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 0, 0.0 , 0 , 1);
@@ -316,14 +358,14 @@
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------------*/
-/*#red{*/
+#red{
 
-/*    -fx-background-color: linear-gradient(#ff5400,#be1d00);*/
-/*    -fx-background-radius: 30;*/
-/*    -fx-background-insets: 0;*/
-/*    -fx-text-fill: white;*/
+    -fx-background-color: linear-gradient(#ff5400,#be1d00);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
 
-/*}*/
+}
 #red:hover{
 
     -fx-background-color: linear-gradient(#be1d00,#ff5400);
@@ -346,21 +388,21 @@
 }
 
 /*----------------------------------------------------------------------------------------------------------*/
-/*#ipad{*/
-/*    -fx-background-color:*/
-/*            linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),*/
-/*            linear-gradient(#020b02, #3a3a3a),*/
-/*            linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),*/
-/*            linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);*/
-/*    -fx-background-insets: 0,1,4,5;*/
-/*    -fx-background-radius: 9,8,5,4;*/
-/*    -fx-padding: 15 30 15 30;*/
-/*    -fx-font-family: "Helvetica";*/
-/*    -fx-font-size: 18px;*/
-/*    -fx-font-weight: bold;*/
-/*    -fx-text-fill: #333333;*/
-/*    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);*/
-/*}*/
+#ipad{
+    -fx-background-color:
+            linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+            linear-gradient(#020b02, #3a3a3a),
+            linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),
+            linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);
+    -fx-background-insets: 0,1,4,5;
+    -fx-background-radius: 9,8,5,4;
+    -fx-padding: 15 30 15 30;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
+}
 #ipad Text {
     -fx-effect: dropshadow( one-pass-box , white , 0, 0.0 , 0 , 1 );
 }
@@ -463,7 +505,7 @@
 
 #but{
     -fx-text-fill: white;
-    -fx-font-family: "Arial Narrow";
+    /*-fx-font-family: "Lucida Handwriting";*/
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient(#61a2b1, #2A5058);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );

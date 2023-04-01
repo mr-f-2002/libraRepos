@@ -1,24 +1,23 @@
 package com.example.demo11;
+
 import Model.postUnit;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.SimpleTimeZone;
 
 public class welcomepageController implements Initializable{
     @FXML
@@ -65,6 +64,18 @@ public class welcomepageController implements Initializable{
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    void loadToolsPage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("tools.fxml"));
+        Parent root = loader.load();
+        Tools tt = loader.getController();
+        tt.setData(USERNAME, USERID);
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+       // stage.setResizable(false);
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

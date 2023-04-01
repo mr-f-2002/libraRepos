@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,7 +17,7 @@
    <children>
       <Label fx:id="user_id" prefHeight="37.0" prefWidth="751.0" text="User ID">
          <font>
-            <Font name="Calibri" size="26.0" />
+            <Font name="Lucida Calligraphy Italic" size="26.0" />
          </font>
       </Label>
       <Label fx:id="postId" text="Label">
@@ -34,7 +35,7 @@
                   <Font name="Calibri" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="date" text="Date">
+            <Label fx:id="date" styleClass="fonting" stylesheets="@stylesheet.css" text="Date">
                <HBox.margin>
                   <Insets left="30.0" />
                </HBox.margin>
@@ -47,9 +48,14 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </HBox>
+      <ImageView fitHeight="150.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@5885-removebg-preview.png" />
+         </image>
+      </ImageView>
       <TextArea fx:id="post_body" editable="false" maxHeight="1.7976931348623157E308" maxWidth="830.0" minHeight="-Infinity" minWidth="830.0" prefHeight="200.0" prefWidth="830.0" text="sjfddoij">
          <font>
-            <Font name="Calibri" size="14.0" />
+            <Font name="Lucida Calligraphy Italic" size="14.0" />
          </font>
       </TextArea>
       <HBox prefHeight="62.0" prefWidth="870.0">
@@ -114,18 +120,13 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label fx:id="cmntCount1" layoutX="259.0" layoutY="20.0" prefHeight="26.0" text="save">
-               <padding>
-                  <Insets right="5.0" />
-               </padding>
-               <font>
-                  <Font name="Calibri" size="18.0" />
-               </font>
+            <Button fx:id="savebutton" mnemonicParsing="false" onAction="#onclicksave">
+               <graphic>
+                  <FontAwesomeIcon glyphName="SAVE" size="20" />
+               </graphic>
                <HBox.margin>
-                  <Insets left="40.0" />
-               </HBox.margin>
-            </Label>
-            <Button fx:id="savebutton" mnemonicParsing="false" onAction="#onclicksave" text="Button" />
+                  <Insets bottom="5.0" left="400.0" />
+               </HBox.margin></Button>
          </children>
          <padding>
             <Insets left="10.0" top="10.0" />

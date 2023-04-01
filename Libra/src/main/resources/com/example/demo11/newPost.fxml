@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.NewPost">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.NewPost">
     <children>
         <AnchorPane layoutX="15.0" layoutY="203.0" prefHeight="490.0" prefWidth="206.0" style="-fx-background-color: #525252;">
             <children>
@@ -67,7 +67,7 @@
                               <Insets right="50.0" top="20.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cencelPost" prefHeight="44.0" prefWidth="136.0" text="Cancel">
+                        <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cencelPost" prefHeight="44.0" prefWidth="136.0" styleClass="fonting" stylesheets="@stylesheet.css" text="Cancel">
                            <HBox.margin>
                               <Insets left="50.0" top="20.0" />
                            </HBox.margin>
