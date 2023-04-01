@@ -52,7 +52,7 @@ public class NewPost implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
             root = loader.load();
             {   String title="INFO";
-                String message="POST HAS BEEN CANCELLED\n";
+                String message="POST IS GOING TO BE CANCELLED\n";
                 TrayNotification tray=new TrayNotification();
                 AnimationType type= AnimationType.POPUP;
                 tray.setAnimationType(type);
@@ -90,7 +90,7 @@ public class NewPost implements Initializable {
         tray.setTitle(title);
         tray.setMessage(message);
         tray.setNotificationType(NotificationType.SUCCESS);
-        tray.showAndDismiss(Duration.seconds(2));
+        tray.showAndDismiss(Duration.seconds(1));
 
         try {
             root = loader.load();

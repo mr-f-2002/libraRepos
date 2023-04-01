@@ -115,7 +115,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-            <Button fx:id="deleteBtn1" mnemonicParsing="false" onAction="#opendeleteWindow">
+            <Button fx:id="deleteBtn1" mnemonicParsing="false" onAction="#opendeleteWindow" stylesheets="@stylesheet.css">
                <HBox.margin>
                   <Insets left="350.0" />
                </HBox.margin>

@@ -110,15 +110,15 @@ public class Structure implements Initializable {
 
     @FXML
     void dislikeBtnClick(ActionEvent event) throws IOException {
-        String title="Reacted";
-        String message=" REACT CONFIRMED\n ";
+        String title="CONFIRM";
+        String message="YOU HAVE REACTED IN THE POST\n"+"POST ID:"+"'"+postId+"'";
         TrayNotification tray=new TrayNotification();
         AnimationType type= AnimationType.POPUP;
         tray.setAnimationType(type);
         tray.setTitle(title);
         tray.setMessage(message);
         tray.setNotificationType(NotificationType.SUCCESS);
-        tray.showAndDismiss(Duration.seconds(2));
+        tray.showAndDismiss(Duration.seconds(1));
         if(dislikeBtn.isSelected()==true)
         {
             Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
@@ -138,15 +138,15 @@ public class Structure implements Initializable {
 
     @FXML
     void likeBtnClick(ActionEvent event) throws IOException {
-        String title="Reacted";
-        String message=" REACT CONFIRMED\n ";
+        String title="CONFIRM";
+        String message="YOU HAVE REACTED IN THE POST\n"+"POST ID:"+"'"+postId+"'";
         TrayNotification tray=new TrayNotification();
         AnimationType type= AnimationType.POPUP;
         tray.setAnimationType(type);
         tray.setTitle(title);
         tray.setMessage(message);
         tray.setNotificationType(NotificationType.SUCCESS);
-        tray.showAndDismiss(Duration.seconds(2));
+        tray.showAndDismiss(Duration.seconds(1));
         if(likeBtn.isSelected()==true)
         {
             Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");

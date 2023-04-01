@@ -154,20 +154,30 @@ public class Profile implements Initializable {
 
 
         if(n==0){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("errortext.fxml"));
+            String title="NOTICE";
+            String message="YOU DON'T HAVE ANY SAVED POST\n";
+            TrayNotification tray=new TrayNotification();
+            AnimationType type= AnimationType.POPUP;
+            tray.setAnimationType(type);
+            tray.setTitle(title);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.NOTICE);
+            tray.showAndDismiss(Duration.seconds(2));
 
-            try {
-                Label lab = loader.load();
-                lab.setText("No Search Result Found!");
-                container.getChildren().add(lab);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
             return;
         }
 
         for (int i = 0; i < n; i++) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("structure.fxml"));
+            String title="NOTICE";
+            String message="YOUR SAVED POSTS\n";
+            TrayNotification tray=new TrayNotification();
+            AnimationType type= AnimationType.POPUP;
+            tray.setAnimationType(type);
+            tray.setTitle(title);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.NOTICE);
+            tray.showAndDismiss(Duration.millis(300));
             try {
                 VBox vBox = loader.load();
                 Structure ss = loader.getController();

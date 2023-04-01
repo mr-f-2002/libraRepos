@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -24,11 +25,13 @@
                   <Font name="Tempus Sans ITC" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="tools" layoutX="49.0" layoutY="471.0" mnemonicParsing="false" onAction="#loadToolsPage" style="-fx-background-color: #75f1ff;" text="Study Tools">
+            <Button fx:id="tools" layoutX="49.0" layoutY="471.0" mnemonicParsing="false" onAction="#loadToolsPage" styleClass="signup" stylesheets="@stylesheet.css" text="Study Tools">
                <font>
                   <Font name="Tempus Sans ITC" size="17.0" />
                </font>
             </Button>
+            <FontAwesomeIcon glyphName="GIFT" layoutX="58.0" layoutY="443.0" selectionEnd="10" selectionStart="10" size="100" tabSize="20" wrappingWidth="92.14286041259766" />
+            <FontAwesomeIcon glyphName="USERS" layoutX="46.0" layoutY="241.0" size="100" />
          </children></AnchorPane>
       <AnchorPane layoutX="14.0" layoutY="75.0" prefHeight="64.0" prefWidth="205.0" style="-fx-background-color: #525252;">
          <children>
@@ -37,17 +40,17 @@
                   <Image url="@search.png" />
                </image>
             </ImageView>
-            <TextField fx:id="searchbar" layoutX="5.0" layoutY="15.0" prefHeight="35.0" prefWidth="158.0" promptText="search" style="-fx-background-color: #434343; -fx-text-fill: #ffffff;">
+            <TextField fx:id="searchbar" layoutX="5.0" layoutY="15.0" prefHeight="35.0" prefWidth="158.0" promptText="Search something....." style="-fx-background-color: #434343; -fx-text-fill: #ffffff;">
                <font>
-                  <Font size="13.0" />
+                  <Font name="Century" size="13.0" />
                </font>
             </TextField>
             <Button fx:id="searchBtn" layoutX="175.0" layoutY="17.0" mnemonicParsing="false" onAction="#searchPost" opacity="0.0" prefHeight="35.0" prefWidth="35.0" />
          </children>
       </AnchorPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="9.0" prefHeight="54.0" prefWidth="108.0" text="Libra" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="9.0" prefHeight="54.0" prefWidth="205.0" text="Libra" textFill="WHITE">
          <font>
-            <Font name="Bookshelf Symbol 7" size="34.0" />
+            <Font name="Old English Text MT" size="40.0" />
          </font>
       </Label>
       <ImageView accessibleRole="BUTTON" fitHeight="35.0" fitWidth="35.0" layoutX="1138.0" layoutY="489.0" pickOnBounds="true">

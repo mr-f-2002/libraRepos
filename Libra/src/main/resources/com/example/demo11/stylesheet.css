@@ -16,6 +16,222 @@
     -fx-font-family: 'Grand Hotel', cursive;
     -fx-font-family: 'Roboto', sans-serif;
 }
+/*.button {*/
+/*    -fx-background-color: #4CAF50;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-font-size: 14px;*/
+/*    -fx-padding: 10px 20px;*/
+/*    -fx-border-radius: 5px;*/
+/*    -fx-border-color: #4CAF50;*/
+/*}*/
+
+/*.button:hover {*/
+/*    -fx-background-color: #3E8E41;*/
+/*    -fx-border-color: #3E8E41;*/
+/*}*/
+
+/*.button:pressed {*/
+/*    -fx-background-color: #1E5631;*/
+/*    -fx-border-color: #1E5631;*/
+/*}*/
+
+
+
+
+.log {
+    -fx-background-color: #333333;
+    -fx-text-fill: #BFBFBF;
+    -fx-font-family: "Lucida Calligraphy";
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #333333;
+    -fx-effect: dropshadow(gaussian, #33FFCC, 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.log:hover {
+    -fx-background-color: #444444;
+    -fx-border-color: #444444;
+}
+
+.log:pressed {
+    -fx-background-color: #222222;
+    -fx-border-color: #222222;
+}
+.signup {
+    -fx-background-color: linear-gradient(to bottom, #FF1493, #FF69B4);
+    -fx-text-fill: white;
+
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #FF1493;
+    -fx-effect: dropshadow(gaussian, #FF1493, 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.signup:hover {
+    -fx-background-color: linear-gradient(to bottom, #FF69B4, #FF1493);
+    -fx-border-color: #FF69B4;
+    -fx-effect: dropshadow(gaussian, #FF69B4, 15, 0, 0, 0);
+}
+
+.signup:pressed {
+    -fx-background-color: linear-gradient(to bottom, #FF69B4, #FF1493);
+    -fx-border-color: #FF69B4;
+    -fx-effect: dropshadow(gaussian, #FF69B4, 5, 0, 0, 0);
+}
+
+
+
+.signup:hover:pressed {
+    -fx-background-color: linear-gradient(to bottom, #FF69B4, #FF1493);
+    -fx-border-color: #FF69B4;
+    -fx-effect: dropshadow(gaussian, #FF69B4, 5, 0, 0, 0);
+}
+
+
+.signup:hover .label {
+    -fx-border-color: #FF69B4;
+}
+
+.signup:pressed .label {
+    -fx-border-color: #FF69B4;
+}
+
+.signup:focused .label {
+    -fx-border-color: #FF69B4;
+}
+
+.signup:hover:pressed .label {
+    -fx-border-color: #FF69B4;
+}
+
+
+.out {
+
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-font-family: "Lucida Calligraphy";
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.out:hover {
+    -fx-background-color: rgba(255,255,255,0.2);
+    -fx-effect: dropshadow(gaussian, #FFFFFF, 10, 0, 0, 0);
+}
+
+.out:pressed {
+    -fx-effect: dropshadow(gaussian, #FFFFFF, 20, 0, 0, 0);
+}
+.shiny-button {
+    -fx-background-color: linear-gradient(to bottom, #e9e9e9, #b7b7b7);
+    -fx-background-radius: 10;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.5), 0, 0, 0, 2);
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+    -fx-padding: 10px 20px;
+}
+.shiny-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #b7b7b7, #e9e9e9);
+    -fx-background-insets: 0, 1;
+}
+.neon-button {
+    -fx-background-color: black;
+    -fx-background-radius: 25;
+    -fx-pref-width: 120;
+    -fx-pref-height: 40;
+    -fx-cursor: hand;
+}
+
+.neon-button .text {
+    -fx-font-size: 18px;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+}
+
+.neon-button:hover {
+    -fx-background-color: #4C4C4C;
+}
+
+.neon-button:pressed {
+    -fx-background-color: #2F2F2F;
+}
+
+.signup-button {
+    -fx-font-family: "Lucida Calligraphy";
+    -fx-background-color: #7decbf;
+    -fx-background-radius: 25;
+    -fx-pref-width: 120;
+    -fx-pref-height: 40;
+    -fx-cursor: hand;
+}
+
+.signup-button .text {
+    -fx-font-size: 18px;
+    -fx-text-fill: #8BE9FD;
+    -fx-alignment: center;
+}
+
+.signup-button:hover {
+    -fx-background-color: #79af9c;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #8BE9FD, 5, 0, 0, 0);
+}
+
+.signup-button:pressed {
+    -fx-background-color: #3fd296;
+    -fx-text-fill: #8BE9FD;
+    -fx-effect: dropshadow(gaussian, #8BE9FD, 10, 0, 0, 0);
+}
+
+
+
+.cancel-button {
+    -fx-font-family: "Lucida Calligraphy";
+    -fx-background-color: #FF3860;
+    -fx-background-radius: 25;
+    -fx-pref-width: 120;
+    -fx-pref-height: 40;
+    -fx-cursor: hand;
+}
+
+.cancel-button .text {
+    -fx-font-size: 18px;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #FF4D6A;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #FF3860, 5, 0, 0, 0);
+}
+
+.cancel-button:pressed {
+    -fx-background-color: #FF1E3B;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #FF3860, 10, 0, 0, 0);
+}
+
+
+
+.cancel-button:disabled {
+    -fx-background-color: #BDBDBD;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #BDBDBD, 5, 0, 0, 0);
+}
+
+
+
+
+
 
 #windows00 {
     -fx-background-color:
@@ -24,11 +240,13 @@
             linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
-    -fx-font-family: Billabong;
+   -fx-font-family: Billabong;
     -fx-padding: 3 30 3 30;
     -fx-text-fill: black;
     -fx-font-size: 14px;
 }
+
+
 
 #windows7 {
     -fx-background-color:
@@ -52,7 +270,7 @@
 
             linear-gradient(#fafdfe, #c4dbe8),
             linear-gradient(#9fc9e5 0%, #a6e0da 40%, #7decbf 100%);
-    transform: rotate(90deg);
+    /*transform: rotate(90deg);*/
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-padding: 3 30 3 30;
@@ -223,11 +441,16 @@
     -fx-border-color:#168FC1;
 }
 
+#fd{
+    -fx-font-family: "Lucida Calligraphy";
+
+}
+
 /*-------------------------------------------------------------------------------------------------------------*/
 
 #line{
-    -fx-text-fill: Black;
-    -fx-font-family: "Lucida Calligraphy";
+    -fx-text-fill:white;
+    /*-fx-font-family: "Lucida Calligraphy";*/
     -fx-font-weight: bold;
     -fx-background-color: linear-gradient( #a6f0ff, #1385B4);
    // -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
@@ -236,7 +459,7 @@
 #line:hover{
     -fx-background-color: linear-gradient(#1385B4, #035F85);
     -fx-text-fill:white;
-    -fx-font-weight:bold;
+    /*-fx-font-weight:bold;*/
 
 }
 

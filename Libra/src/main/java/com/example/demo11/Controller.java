@@ -123,7 +123,7 @@ public class Controller {
             tray.setTitle(title);
             tray.setMessage(message);
             tray.setNotificationType(NotificationType.ERROR);
-            tray.showAndDismiss(Duration.seconds(2));
+            tray.showAndDismiss(Duration.seconds(1));
          //  loginError.setText("Wrong username or password!!");
             //createNotification();
         }else {
@@ -158,7 +158,7 @@ public class Controller {
                 tray.setTitle(title);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.seconds(2));
+                tray.showAndDismiss(Duration.seconds(1));
 
 
 //
@@ -172,7 +172,7 @@ public class Controller {
                 tray.setTitle(title);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.ERROR);
-                tray.showAndDismiss(Duration.seconds(2));
+                tray.showAndDismiss(Duration.seconds(1));
             }
         }
     }
@@ -199,7 +199,7 @@ public class Controller {
             tray.setTitle(title);
             tray.setMessage(message);
             tray.setNotificationType(NotificationType.ERROR);
-            tray.showAndDismiss(Duration.seconds(2));
+            tray.showAndDismiss(Duration.seconds(1));
          //   signupError.setText("Password must be identical for both fields!");
         }
         else {
@@ -223,7 +223,7 @@ public class Controller {
                 tray.setTitle(title);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.ERROR);
-                tray.showAndDismiss(Duration.seconds(2));}
+                tray.showAndDismiss(Duration.seconds(1));}
                // signupError.setText("Student ID can contain numbers only!");
             else if(UTILITY.checkEmail(mail) == false)
             {String title="SIGNUP FAILED";
@@ -234,7 +234,7 @@ public class Controller {
                 tray.setTitle(title);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.ERROR);
-                tray.showAndDismiss(Duration.seconds(2));}
+                tray.showAndDismiss(Duration.seconds(1));}
                 //signupError.setText("Invalid email !!!");
             else if(UTILITY.checkUsername(username)==false)
             {String title="SIGNUP FAILED";
@@ -245,7 +245,7 @@ public class Controller {
                 tray.setTitle(title);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.ERROR);
-                tray.showAndDismiss(Duration.seconds(2));}
+                tray.showAndDismiss(Duration.seconds(1));}
                // signupError.setText("username can contain only lowercase letters, numbers and underscore symbol");
             else if(UTILITY.checkPassword(pas1) == false)
             {String title="SIGNUP FAILED";
@@ -256,7 +256,7 @@ public class Controller {
                 tray.setTitle(title);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.ERROR);
-                tray.showAndDismiss(Duration.seconds(2));}
+                tray.showAndDismiss(Duration.seconds(1));}
                // signupError.setText("Password is not Strong Enough!");
             else {
                 String title="Sign In Successful";
@@ -267,7 +267,7 @@ public class Controller {
                 tray.setTitle(title);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.seconds(2));
+                tray.showAndDismiss(Duration.seconds(1));
 
                 pas1 = UTILITY.encrypt(pas1);
                 JDBC.EnterData(fn, ln, id, department, mail, username, pas1);

@@ -38,7 +38,7 @@ public class CommentPage implements Initializable {
         tray.setTitle(title);
         tray.setMessage(message);
         tray.setNotificationType(NotificationType.SUCCESS);
-        tray.showAndDismiss(Duration.seconds(2));
+        tray.showAndDismiss(Duration.seconds(1));
         //System.out.println("post that I want to insert comment to -> "+postid);
         //System.out.println("user that I want to comment as -> "+userid);
         JDBC.insertComment(userid, postid, cmntBody.getText());

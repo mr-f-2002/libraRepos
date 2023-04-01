@@ -1,12 +1,16 @@
 package com.example.demo11;
 
 import Model.postUnit;
+import javafx.util.Duration;
 import javafx.util.Pair;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
-import java.time.format.*;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -303,16 +307,38 @@ public class JDBC {
             PreparedStatement stmtSelect = conn.prepareStatement("SELECT * FROM savetable WHERE s_postid = ?");
             PreparedStatement stmtDelete = conn.prepareStatement("DELETE FROM savetable WHERE s_postid = ?");
             {
-
                 // Check if post ID exists
                 stmtSelect.setString(1, posttId);
                 ResultSet rs = stmtSelect.executeQuery();
+
+
+
                 if (rs.next()) {
                     // Post ID exists, delete it
+
                     stmtDelete.setString(1, posttId);
                     int rowsDeleted = stmtDelete.executeUpdate();
+                    String title="DONE";
+                    String message="UNSAVED SUCCESSFULLY\n"+"POST ID :"+"'"+posttId+"'"+"\n";
+                    TrayNotification tray=new TrayNotification();
+                    AnimationType type= AnimationType.POPUP;
+                    tray.setAnimationType(type);
+                    tray.setTitle(title);
+                    tray.setMessage(message);
+                    tray.setNotificationType(NotificationType.SUCCESS);
+                    tray.showAndDismiss(Duration.seconds(1));
+
                     System.out.println(rowsDeleted + " row(s) deleted.");
                 } else {
+                    String title="WARNING";
+                    String message="FIRST SAVE THE POST\n";
+                    TrayNotification tray=new TrayNotification();
+                    AnimationType type= AnimationType.POPUP;
+                    tray.setAnimationType(type);
+                    tray.setTitle(title);
+                    tray.setMessage(message);
+                    tray.setNotificationType(NotificationType.WARNING);
+                    tray.showAndDismiss(Duration.seconds(1));
                     System.out.println("Post ID not found.");
                 }
 

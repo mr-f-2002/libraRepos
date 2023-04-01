@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="ipad_d" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #424242;" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #424242;" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.Controller">
    <children>
       <AnchorPane layoutX="23.0" layoutY="28.0" prefHeight="643.0" prefWidth="432.0" style="-fx-background-color: #36383b;" styleClass="Anchorpane" stylesheets="@stylesheet.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="753.0" AnchorPane.topAnchor="15.0">
          <children>
@@ -82,14 +82,14 @@
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <Button fx:id="logIn" layoutX="674.0" layoutY="508.0" mnemonicParsing="false" onAction="#loginBtn" onKeyPressed="#loginBtn" prefHeight="44.0" prefWidth="148.0" style=" -fx-font-family: Billabong;" stylesheets="@stylesheet.css" text="Log In">
+      <Button fx:id="logIn" layoutX="674.0" layoutY="508.0" mnemonicParsing="false" onAction="#loginBtn" onKeyPressed="#loginBtn" prefHeight="44.0" prefWidth="148.0" style=" -fx-font-family: Billabong;" styleClass="log" stylesheets="@stylesheet.css" text="Log In">
          <font>
-            <Font name="Lucida Calligraphy Italic" size="20.0" />
+            <Font name="System Italic" size="40.0" />
          </font>
       </Button>
-      <Button id="windows7" fx:id="signUp" layoutX="841.0" layoutY="508.0" mnemonicParsing="false" onAction="#signupBtn" prefHeight="44.0" prefWidth="148.0" stylesheets="@stylesheet.css" text="Sign Up" textFill="#0d0d0d">
+      <Button fx:id="signUp" layoutX="841.0" layoutY="508.0" mnemonicParsing="false" onAction="#signupBtn" prefHeight="44.0" prefWidth="148.0" styleClass="signup" stylesheets="@stylesheet.css" text="Sign Up" textFill="#0d0d0d">
          <font>
-            <Font size="40.0" />
+            <Font name="Sylfaen" size="40.0" />
          </font>
       </Button>
       <Label alignment="CENTER" layoutX="643.0" layoutY="25.0" prefHeight="138.0" prefWidth="321.0" stylesheets="@stylesheet.css" text="Log In">
