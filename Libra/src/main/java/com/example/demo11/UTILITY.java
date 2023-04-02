@@ -27,17 +27,17 @@ public class UTILITY {
         }
         return output;
     }
-    public static String hash(String password) throws NoSuchAlgorithmException {
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] encodedHash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-        StringBuilder hexString = new StringBuilder();
-        for (byte b : encodedHash) {
-            String hex = Integer.toHexString(0xff & b);
-            if (hex.length() == 1) hexString.append('0');
-            hexString.append(hex);
-        }
-        return hexString.toString();
-    }
+//    public static String hash(String password) throws NoSuchAlgorithmException {
+//        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+//        byte[] encodedHash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+//        StringBuilder hexString = new StringBuilder();
+//        for (byte b : encodedHash) {
+//            String hex = Integer.toHexString(0xff & b);
+//            if (hex.length() == 1) hexString.append('0');
+//            hexString.append(hex);
+//        }
+//        return hexString.toString();
+//    }
     public static boolean checkEmail(String email) {
         final String EMAIL_REGEX = "^[a-z0-9+.-]+@iut-dhaka\\.edu$";
         Pattern pattern = Pattern.compile(EMAIL_REGEX);
