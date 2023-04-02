@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -15,52 +16,63 @@
 
 <VBox prefHeight="326.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.Structure">
    <children>
-      <Label fx:id="user_id" prefHeight="37.0" prefWidth="751.0" text="User ID">
-         <font>
-            <Font name="Lucida Calligraphy Italic" size="26.0" />
-         </font>
-      </Label>
-      <Label fx:id="postId" text="Label">
-         <VBox.margin>
-            <Insets bottom="5.0" top="5.0" />
-         </VBox.margin>
-         <font>
-            <Font name="Calibri Italic" size="15.0" />
-         </font>
-      </Label>
-      <HBox prefHeight="26.0" prefWidth="870.0">
+      <HBox>
          <children>
-            <Label fx:id="category" text="Category">
-               <font>
-                  <Font name="Calibri" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="date" styleClass="fonting" stylesheets="@stylesheet.css" text="Date">
-               <HBox.margin>
+            <ImageView fitHeight="103.0" fitWidth="205.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@5885-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <VBox>
+               <children>
+                  <Label fx:id="user_id" prefHeight="37.0" prefWidth="751.0" text="User ID">
+                     <font>
+                        <Font name="Lucida Calligraphy Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="postId" text="post id">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="3.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Lucida Calligraphy Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="26.0" prefWidth="870.0">
+                     <children>
+                        <Label fx:id="category" text="Category">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="date" styleClass="fonting" stylesheets="@stylesheet.css" text="Date">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
                   <Insets left="30.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Calibri" size="18.0" />
-               </font>
-            </Label>
+               </padding>
+            </VBox>
          </children>
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
       </HBox>
-      <ImageView fitHeight="150.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@5885-removebg-preview.png" />
-         </image>
-      </ImageView>
       <TextArea fx:id="post_body" editable="false" maxHeight="1.7976931348623157E308" maxWidth="830.0" minHeight="-Infinity" minWidth="830.0" prefHeight="200.0" prefWidth="830.0" text="sjfddoij">
          <font>
-            <Font name="Lucida Calligraphy Italic" size="14.0" />
+            <Font name="Lucida Bright" size="14.0" />
          </font>
       </TextArea>
       <HBox prefHeight="62.0" prefWidth="870.0">
          <children>
-            <Label fx:id="likeCount" prefHeight="26.0" text="likes">
+            <Label fx:id="likeCount" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="20.0" text="likes">
                <padding>
                   <Insets right="5.0" />
                </padding>
@@ -79,8 +91,11 @@
                <toggleGroup>
                   <ToggleGroup fx:id="interaction" />
                </toggleGroup>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ToggleButton>
-            <Label fx:id="dislikeCount" prefHeight="26.0" text="dislikes">
+            <Label fx:id="dislikeCount" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="20.0" text="dislikes">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>
@@ -99,8 +114,11 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ToggleButton>
-            <Label fx:id="cmntCount" prefHeight="26.0" text="comments">
+            <Label fx:id="cmntCount" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="20.0" text="comments">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>
@@ -119,14 +137,20 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="savebutton" mnemonicParsing="false" onAction="#onclicksave">
                <graphic>
                   <FontAwesomeIcon glyphName="SAVE" size="20" />
                </graphic>
                <HBox.margin>
-                  <Insets bottom="5.0" left="350.0" />
-               </HBox.margin></Button>
+                  <Insets bottom="5.0" left="480.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Button fx:id="unsave" mnemonicParsing="false" onAction="#unsaveButton">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -138,6 +162,9 @@
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
          <padding>

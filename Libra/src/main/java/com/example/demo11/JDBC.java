@@ -164,7 +164,12 @@ public class JDBC {
 
                 //set.setDate(String.valueOf(LocalDateTime.parse(rs.getTimestamp("creationdate").toLocalDateTime().toString(), formatter)));
                 //set.setTimestamp(index, Timestamp.valueOf(LocalDateTime.parse(rs.getTimestamp("birthday").toLocalDateTime().toString(), formatter)));
-                set.setDate(rs.getTimestamp("creationdate").toLocalDateTime().toString());
+              // //set.setDate(rs.getTimestamp("creationdate").toLocalDateTime().toString());
+                LocalDateTime localDateTime = rs.getTimestamp("creationdate").toLocalDateTime();
+                Timestamp timestamp = Timestamp.valueOf(localDateTime);
+                Date date = Date.valueOf(timestamp.toLocalDateTime().toLocalDate());
+                set.setDate(String.valueOf(date));
+
                 set.setPostId(rs.getString("postid"));
                 set.setCategory(rs.getString("category"));
 

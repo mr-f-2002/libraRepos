@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -15,47 +15,65 @@
     <children>
         <AnchorPane layoutX="14.0" layoutY="82.0" prefHeight="603.0" prefWidth="206.0" style="-fx-background-color: #525252;">
             <children>
-                <Label fx:id="userName" alignment="CENTER" layoutX="15.0" layoutY="37.0" prefHeight="54.0" prefWidth="174.0" text="username" textFill="WHITE">
+                <Label fx:id="userName" alignment="CENTER" layoutX="4.0" layoutY="37.0" prefHeight="54.0" prefWidth="206.0" text="username" textFill="WHITE">
                     <font>
                         <Font name="Tempus Sans ITC" size="23.0" />
                     </font>
                 </Label>
-                <Label fx:id="userId" alignment="CENTER" layoutX="15.0" layoutY="91.0" prefHeight="54.0" prefWidth="174.0" text="User ID : " textFill="WHITE">
+                <Label fx:id="userId" alignment="CENTER" layoutX="1.0" layoutY="91.0" prefHeight="42.0" prefWidth="206.0" text="User ID " textFill="WHITE">
                     <font>
                         <Font name="Tempus Sans ITC" size="16.0" />
                     </font>
                 </Label>
-                <Button fx:id="google" layoutX="17.0" layoutY="194.0" mnemonicParsing="false" onAction="#loadGoogle" style="-fx-background-color: #424242;" text="Google" textFill="WHITE" />
-                <Button fx:id="word" layoutX="15.0" layoutY="265.0" mnemonicParsing="false" onAction="#loadWord" style="-fx-background-color: #424242;" text="Office 360" textFill="WHITE" />
-                <Button fx:id="stackOverflow" layoutX="14.0" layoutY="338.0" mnemonicParsing="false" onAction="#loadStackOverflow" style="-fx-background-color: #424242;" text="Stack Overflow" textFill="WHITE" />
-                <Button layoutX="14.0" layoutY="375.0" mnemonicParsing="false" onAction="#loadGFG" style="-fx-background-color: #424242;" text="Geek for Geeks" textFill="WHITE" />
+                <Button fx:id="google" layoutX="17.0" layoutY="194.0" mnemonicParsing="false" onAction="#loadGoogle" style="-fx-background-color: #424242;" text="Google" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button fx:id="word" layoutX="15.0" layoutY="265.0" mnemonicParsing="false" onAction="#loadWord" style="-fx-background-color: #424242;" text="Office 360" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button fx:id="stackOverflow" layoutX="14.0" layoutY="338.0" mnemonicParsing="false" onAction="#loadStackOverflow" style="-fx-background-color: #424242;" text="Stack Overflow" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button layoutX="14.0" layoutY="375.0" mnemonicParsing="false" onAction="#loadGFG" style="-fx-background-color: #424242;" text="Geek for Geeks" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
                 <TextField fx:id="URL" layoutX="8.0" layoutY="470.0" prefHeight="26.0" prefWidth="192.0" promptText="Enter URL" style="-fx-background-color: #333333; -fx-text-fill: #999999;" />
-                <Button layoutX="148.0" layoutY="500.0" mnemonicParsing="false" onAction="#loadURL" prefHeight="30.0" prefWidth="43.0" style="-fx-background-color: #424242;" text="Load" textFill="#fffefe">
+                <Button layoutX="165.0" layoutY="503.0" mnemonicParsing="false" onAction="#loadURL" prefHeight="30.0" prefWidth="29.0" style="-fx-background-color: #424242;" textFill="#fffefe">
                     <font>
                         <Font name="Kristen ITC" size="10.0" />
                     </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="GLOBE" size="20" />
+               </graphic>
                 </Button>
-                <Button fx:id="word1" layoutX="15.0" layoutY="302.0" mnemonicParsing="false" onAction="#loadCompiler" style="-fx-background-color: #424242;" text="Code Compiler" textFill="WHITE" />
-                <Button fx:id="google1" layoutX="16.0" layoutY="229.0" mnemonicParsing="false" onAction="#loadGPT" style="-fx-background-color: #424242;" text="Chat GPT" textFill="WHITE" />
+                <Button fx:id="word1" layoutX="15.0" layoutY="302.0" mnemonicParsing="false" onAction="#loadCompiler" style="-fx-background-color: #424242;" text="Code Compiler" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button fx:id="google1" layoutX="16.0" layoutY="229.0" mnemonicParsing="false" onAction="#loadGPT" style="-fx-background-color: #424242;" text="Chat GPT" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <FontAwesomeIcon fill="#3cff00" glyphName="CHECK_CIRCLE" layoutX="164.0" layoutY="75.0" size="20" />
             </children>
         </AnchorPane>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="9.0" prefHeight="82.0" prefWidth="206.0" text="Libra" textFill="WHITE">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="9.0" prefHeight="69.0" prefWidth="206.0" text="Libra" textFill="WHITE">
             <font>
-                <Font name="Bookshelf Symbol 7" size="34.0" />
+                <Font name="Old English Text MT" size="40.0" />
             </font>
         </Label>
-        <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="1133.0" layoutY="555.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@home.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="1133.0" layoutY="626.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@profile.png" />
-            </image>
-        </ImageView>
-        <Button fx:id="myProfile" layoutX="1132.0" layoutY="558.0" mnemonicParsing="false" onAction="#loadHome" opacity="0.0" prefHeight="35.0" prefWidth="46.0" />
-        <Button fx:id="home" layoutX="1132.0" layoutY="629.0" mnemonicParsing="false" onAction="#loadProfile" opacity="0.0" prefHeight="35.0" prefWidth="46.0" />
+        <Button fx:id="myProfile" layoutX="1126.0" layoutY="546.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="35.0" prefWidth="46.0" style="-fx-background-color: #424242;">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="HOME" onMouseClicked="#loadHome" size="50" />
+         </graphic></Button>
+        <Button fx:id="home" layoutX="1126.0" layoutY="621.0" mnemonicParsing="false" onAction="#loadProfile" prefHeight="35.0" prefWidth="46.0" style="-fx-background-color: #424242;">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="USER" onMouseClicked="#loadProfile" size="50" />
+         </graphic></Button>
         <ScrollPane layoutX="238.0" layoutY="8.0" prefHeight="686.0" prefWidth="873.0" style="-fx-background: #525252;">
             <content>
                 <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="682.0" prefWidth="870.0">
