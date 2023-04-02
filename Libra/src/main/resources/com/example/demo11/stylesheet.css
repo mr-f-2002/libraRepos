@@ -36,6 +36,15 @@
 /*}*/
 
 
+.icon-button {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+    opacity: 1;
+    -fx-background-color: #378c69;
+}
 
 
 .log {
@@ -342,6 +351,300 @@
     -fx-padding: 10 15 13 15;
     -fx-background-insets: 2 0 0 0,2 0 3 0,2 0 4 0,2 0 5 0;
 
+}
+#button1 {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0,0 0 6 0,0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #4a00e0 0%, #8e2de2 100%),
+            #9d4024,
+            #d86e3a,
+            radial-gradient(center 50% 50%, radius 100%, #d96e3a, #c54e2c);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 4, 0, 0, 1),
+    glow(rgba(255, 255, 255, 0.5), 2);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-text-fill: white;
+}
+
+#button1:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #4a00e0 0%, #8e2de2 100%),
+            #9d4024,
+            #d86e3a,
+            radial-gradient(center 50% 50%,radius 100%, #b967ff, #c54e2c);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 6, 0, 0, 2),
+    glow(rgba(255, 255, 255, 0.5), 4);
+}
+
+#button1:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0,2 0 4 0,2 0 5 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 8, 0, 0, 3),
+    glow(rgba(255, 255, 255, 0.5), 6);
+}
+#discount {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0,0 0 6 0,0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,#2e7d32 0%,#1b5e20 100%),
+            #3f9b3b,
+            #64dd17,
+            radial-gradient(center 50% 50%, radius 100%,#64dd17,#3f9b3b);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75),4,0,0,1);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-text-fill: white;
+}
+
+#discount:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,#2e7d32 0%,#1b5e20 100%),
+            #3f9b3b,
+            #64dd17,
+            radial-gradient(center 50% 50%, radius 100%,#76ff03,#3f9b3b);
+}
+
+#discount:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0,2 0 4 0,2 0 5 0;
+}
+
+#promotion {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0,0 0 6 0,0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,#4a148c 0%,#311b92 100%),
+            #673ab7,
+            #9c27b0,
+            radial-gradient(center 50% 50%, radius 100%,#9c27b0,#673ab7);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75),4,0,0,1);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-text-fill: white;
+}
+
+#promotion:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,#4a148c 0%,#311b92 100%),
+            #673ab7,
+            #9c27b0,
+            radial-gradient(center 50% 50%, radius 100%,#e040fb,#9c27b0);
+}
+
+#promotion:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0,2 0 4 0,2 0 5 0;
+}
+#button7 {
+    -fx-background-color:
+            linear-gradient(to bottom, #1c1c1c, #2c2c2c),
+            linear-gradient(to bottom, #3d3d3d, #292929),
+            linear-gradient(to bottom, #525252, #3b3b3b),
+            linear-gradient(to bottom, #686868, #525252);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0, 2, 3, 4;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 0);
+    -fx-font-family: "Arial";
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-padding: 10 20 10 20;
+    -fx-alignment: center;
+    -fx-cursor: hand;
+}
+
+#button7:hover {
+    -fx-background-color:
+            linear-gradient(to bottom, #1c1c1c, #2c2c2c),
+            linear-gradient(to bottom, #3d3d3d, #292929),
+            linear-gradient(to bottom, #525252, #3b3b3b),
+            linear-gradient(to bottom, #00ffad, #00ffad);
+}
+
+#unique-button {
+    -fx-padding: 10 20;
+    -fx-background-color:
+            linear-gradient(to bottom, #1a1a1a, #222222),
+            linear-gradient(to top, #1a1a1a, #222222);
+    -fx-background-radius: 50;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 50;
+    -fx-border-style: solid;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+#unique-button:hover {
+    -fx-background-color:
+            linear-gradient(to bottom, #00bfff, #1e90ff),
+            linear-gradient(to top, #00bfff, #1e90ff);
+    -fx-border-color: #00bfff;
+    -fx-border-width: 3;
+    -fx-effect: dropshadow(three-pass-box, #00bfff, 15, 0, 0, 0);
+}
+
+#unique-button:pressed {
+    -fx-background-color:
+            linear-gradient(to bottom, #00bfff, #1e90ff),
+            linear-gradient(to top, #00bfff, #1e90ff);
+    -fx-border-color: #00bfff;
+    -fx-border-width: 3;
+    -fx-effect: dropshadow(three-pass-box, #00bfff, 20, 0, 0, 0);
+}
+#cancel-button1 {
+    -fx-padding: 10 20;
+    -fx-background-color:
+            linear-gradient(to bottom, #1a1a1a, #222222),
+            linear-gradient(to top, #1a1a1a, #222222);
+    -fx-background-radius: 50;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 50;
+    -fx-border-style: solid;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+#cancel-button1:hover {
+    -fx-background-color:
+            linear-gradient(to bottom, #ff6961, #ff4d4d),
+            linear-gradient(to top, #ff6961, #ff4d4d);
+    -fx-border-color: #ff6961;
+    -fx-border-width: 3;
+    -fx-effect: dropshadow(three-pass-box, #ff6961, 15, 0, 0, 0);
+}
+
+#cancel-button1:pressed {
+    -fx-background-color:
+            linear-gradient(to bottom, #ff6961, #ff4d4d),
+            linear-gradient(to top, #ff6961, #ff4d4d);
+    -fx-border-color: #ff6961;
+    -fx-border-width: 3;
+    -fx-effect: dropshadow(three-pass-box, #ff6961, 20, 0, 0, 0);
+}
+
+#tiktok-button {
+    -fx-background-color: linear-gradient(to right, #F44436, #FE8800);
+    -fx-background-radius: 50;
+    -fx-padding: 10px 40px;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 2);
+}
+
+#tiktok-button:hover {
+    -fx-background-color: linear-gradient(to right, #FFC107, #FE8800);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+#tiktok-button:pressed {
+    -fx-background-color: linear-gradient(to right, #F44436, #F29A23);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 5, 0, 0, 2);
+}
+
+#dark-blue-button {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0,0 0 6 0,0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #0c306a 0%, #092e62 100%),
+            #0d2e5a,
+            #143977,
+            radial-gradient(center 50% 50%, radius 100%, #143977, #0d2e5a);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75),4,0,0,1),
+    glow;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-text-fill: white;
+}
+
+#dark-blue-button:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #0c306a 0%, #092e62 100%),
+            #0d2e5a,
+            #143977,
+            radial-gradient(center 50% 50%, radius 100%, #1f77cd, #0d2e5a);
+}
+
+#dark-blue-button:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#dark-green-button {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0,0 0 6 0,0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #085c3f 0%, #064c32 100%),
+            #075036,
+            #0c724e,
+            radial-gradient(center 50% 50%, radius 100%, #0c724e, #075036);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75),4,0,0,1),
+    glow;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-text-fill: white;
+}
+
+#dark-green-button:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #085c3f 0%, #064c32 100%),
+            #075036,
+            #0c724e,
+            radial-gradient(center 50% 50%, radius 100%, #2ecc71, #075036);
+}
+
+#dark-green-button:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#darkNeon {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0,0 0 6 0,0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,#393939 0%,#272727 100%),
+            #333333,
+            #606060,
+            radial-gradient(center 50% 50%, radius 100%,#606060,#494949);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75),4,0,0,1);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-text-fill: white;
+    -fx-underline: false;
+    -fx-stroke: #39ff14;
+    -fx-stroke-width: 0.5px;
+}
+
+#darkNeon:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,#393939 0%,#272727 100%),
+            #333333,
+            #606060,
+            radial-gradient(center 50% 50%, radius 100%,#39ff14,#494949);
+    -fx-effect: dropshadow(gaussian, rgba(0,255,20,0.75),4,0,0,1);
+    -fx-stroke: white;
+}
+
+#darkNeon:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0,2 0 4 0,2 0 5 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,255,20,1),8,0,0,2);
+    -fx-stroke: #39ff14;
 }
 
 /*-------------------------------------------------------------------------------------*/
