@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.mail.MessagingException;
 import java.sql.Connection;
 
 public class Main extends Application {
@@ -20,9 +21,9 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        Connection con = connection.fastconnect();
+    public static void main(String[] args) throws MessagingException {
 
+        Connection con = connection.fastconnect();
         launch(args);
         //Controller.initialized();
 

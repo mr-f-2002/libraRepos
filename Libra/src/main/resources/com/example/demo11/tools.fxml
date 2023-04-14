@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -13,36 +15,26 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.Tools">
     <children>
-        <AnchorPane layoutX="14.0" layoutY="82.0" prefHeight="603.0" prefWidth="206.0" style="-fx-background-color: #525252;">
+        <AnchorPane layoutX="14.0" layoutY="236.0" prefHeight="454.0" prefWidth="212.0" style="-fx-background-color: #525252;">
             <children>
-                <Label fx:id="userName" alignment="CENTER" layoutX="4.0" layoutY="37.0" prefHeight="54.0" prefWidth="206.0" text="username" textFill="WHITE">
-                    <font>
-                        <Font name="Tempus Sans ITC" size="23.0" />
-                    </font>
-                </Label>
-                <Label fx:id="userId" alignment="CENTER" layoutX="1.0" layoutY="91.0" prefHeight="42.0" prefWidth="206.0" text="User ID " textFill="WHITE">
-                    <font>
-                        <Font name="Tempus Sans ITC" size="16.0" />
-                    </font>
-                </Label>
-                <Button fx:id="google" layoutX="17.0" layoutY="194.0" mnemonicParsing="false" onAction="#loadGoogle" style="-fx-background-color: #424242;" text="Google" textFill="WHITE">
+                <Button fx:id="google" layoutX="13.0" layoutY="143.0" mnemonicParsing="false" onAction="#loadGoogle" style="-fx-background-color: #424242;" text="Google" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-                <Button fx:id="word" layoutX="15.0" layoutY="265.0" mnemonicParsing="false" onAction="#loadWord" style="-fx-background-color: #424242;" text="Office 360" textFill="WHITE">
+                <Button fx:id="word" layoutX="13.0" layoutY="174.0" mnemonicParsing="false" onAction="#loadWord" style="-fx-background-color: #424242;" text="Office 360" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-                <Button fx:id="stackOverflow" layoutX="14.0" layoutY="338.0" mnemonicParsing="false" onAction="#loadStackOverflow" style="-fx-background-color: #424242;" text="Stack Overflow" textFill="WHITE">
+                <Button fx:id="stackOverflow" layoutX="14.0" layoutY="238.0" mnemonicParsing="false" onAction="#loadStackOverflow" style="-fx-background-color: #424242;" text="Stack Overflow" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-                <Button layoutX="14.0" layoutY="375.0" mnemonicParsing="false" onAction="#loadGFG" style="-fx-background-color: #424242;" text="Geek for Geeks" textFill="WHITE">
+                <Button layoutX="14.0" layoutY="272.0" mnemonicParsing="false" onAction="#loadGFG" style="-fx-background-color: #424242;" text="Geek for Geeks" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-                <TextField fx:id="URL" layoutX="8.0" layoutY="470.0" prefHeight="26.0" prefWidth="192.0" promptText="Enter URL" style="-fx-background-color: #333333; -fx-text-fill: #999999;" />
-                <Button layoutX="165.0" layoutY="503.0" mnemonicParsing="false" onAction="#loadURL" prefHeight="30.0" prefWidth="29.0" style="-fx-background-color: #424242;" textFill="#fffefe">
+                <TextField fx:id="URL" layoutX="8.0" layoutY="320.0" prefHeight="26.0" prefWidth="192.0" promptText="Enter URL" style="-fx-background-color: #333333; -fx-text-fill: #999999;" />
+                <Button layoutX="167.0" layoutY="355.0" mnemonicParsing="false" onAction="#loadURL" prefHeight="30.0" prefWidth="29.0" style="-fx-background-color: #424242;" textFill="#fffefe">
                     <font>
                         <Font name="Kristen ITC" size="10.0" />
                     </font>
@@ -50,22 +42,51 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="GLOBE" size="20" />
                </graphic>
                 </Button>
-                <Button fx:id="word1" layoutX="15.0" layoutY="302.0" mnemonicParsing="false" onAction="#loadCompiler" style="-fx-background-color: #424242;" text="Code Compiler" textFill="WHITE">
+                <Button fx:id="word1" layoutX="14.0" layoutY="206.0" mnemonicParsing="false" onAction="#loadCompiler" style="-fx-background-color: #424242;" text="Code Compiler" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-                <Button fx:id="google1" layoutX="16.0" layoutY="229.0" mnemonicParsing="false" onAction="#loadGPT" style="-fx-background-color: #424242;" text="Chat GPT" textFill="WHITE">
+                <Button fx:id="google1" layoutX="78.0" layoutY="144.0" mnemonicParsing="false" onAction="#loadGPT" style="-fx-background-color: #424242;" text="Chat GPT" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <FontAwesomeIcon fill="#3cff00" glyphName="CHECK_CIRCLE" layoutX="164.0" layoutY="75.0" size="20" />
+            <Button layoutX="13.0" layoutY="355.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #424242;">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="CHEVRON_LEFT" size="15" />
+               </graphic>
+            </Button>
+            <Button layoutX="81.0" layoutY="355.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #424242;">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="REFRESH" size="15" />
+               </graphic>
+            </Button>
+            <Button layoutX="47.0" layoutY="355.0" mnemonicParsing="false" onAction="#forward" style="-fx-background-color: #424242;">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="CHEVRON_RIGHT" size="15" />
+               </graphic>
+            </Button>
+            <Button layoutX="169.0" layoutY="389.0" mnemonicParsing="false" onAction="#zoomin" style="-fx-background-color: #424242;">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="PLUS" size="15" />
+               </graphic>
+            </Button>
+            <Button layoutX="169.0" layoutY="416.0" mnemonicParsing="false" onAction="#zoomout" style="-fx-background-color: #424242;">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="MINUS" size="15" />
+               </graphic>
+            </Button>
+                <Label fx:id="userName" alignment="CENTER" layoutX="6.0" layoutY="18.0" prefHeight="54.0" prefWidth="206.0" text="username" textFill="WHITE">
+                    <font>
+                        <Font name="Tempus Sans ITC" size="23.0" />
+                    </font>
+                </Label>
+                <Label fx:id="userId" alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="42.0" prefWidth="210.0" text="User ID " textFill="WHITE">
+                    <font>
+                        <Font name="Tempus Sans ITC" size="16.0" />
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="9.0" prefHeight="69.0" prefWidth="206.0" text="Libra" textFill="WHITE">
-            <font>
-                <Font name="Old English Text MT" size="40.0" />
-            </font>
-        </Label>
         <Button fx:id="myProfile" layoutX="1126.0" layoutY="546.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="35.0" prefWidth="46.0" style="-fx-background-color: #424242;">
          <graphic>
             <FontAwesomeIcon fill="WHITE" glyphName="HOME" onMouseClicked="#loadHome" size="50" />
@@ -82,5 +103,10 @@
                     </children></VBox>
             </content>
         </ScrollPane>
+      <ImageView fitHeight="120.0" fitWidth="229.0" layoutX="4.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Screenshot%202023-04-03%20003325.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

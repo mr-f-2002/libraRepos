@@ -82,12 +82,12 @@
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <Button fx:id="logIn" layoutX="674.0" layoutY="508.0" mnemonicParsing="false" onAction="#loginBtn" onKeyPressed="#loginBtn" prefHeight="44.0" prefWidth="148.0" style=" -fx-font-family: Billabong;" styleClass="log" stylesheets="@stylesheet.css" text="Log In">
+      <Button id="button7" fx:id="logIn" layoutX="674.0" layoutY="508.0" mnemonicParsing="false" onAction="#loginBtn" onKeyPressed="#loginBtn" prefHeight="44.0" prefWidth="148.0" style="-fx-font-family: Billabong;" stylesheets="@stylesheet.css" text="Log In" textFill="WHITE">
          <font>
-            <Font name="System Italic" size="40.0" />
+            <Font name="Sylfaen" size="40.0" />
          </font>
       </Button>
-      <Button fx:id="signUp" layoutX="841.0" layoutY="508.0" mnemonicParsing="false" onAction="#signupBtn" prefHeight="44.0" prefWidth="148.0" styleClass="signup" stylesheets="@stylesheet.css" text="Sign Up" textFill="#0d0d0d">
+      <Button id="button8" fx:id="signUp" layoutX="841.0" layoutY="508.0" mnemonicParsing="false" onAction="#signupBtn" prefHeight="51.0" prefWidth="148.0" stylesheets="@stylesheet.css" text="Sign Up" textFill="#0d0d0d">
          <font>
             <Font name="Sylfaen" size="40.0" />
          </font>
@@ -127,7 +127,7 @@
       </Label>
       <FontAwesomeIcon glyphName="USER" layoutX="685.0" layoutY="304.0" size="20" />
       <FontAwesomeIcon glyphName="LOCK" layoutX="683.0" layoutY="376.0" size="22" />
-      <ImageView fx:id="ibopen" fitHeight="20.0" fitWidth="20.0" layoutX="998.0" layoutY="357.0" onMouseClicked="#open_eye" opacity="0.78" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ibopen" fitHeight="20.0" fitWidth="20.0" layoutX="998.0" layoutY="357.0" onMouseClicked="#open_eye" opacity="0.78" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@565655-removebg-preview.png" />
          </image>
@@ -137,5 +137,10 @@
             <Image url="@eye-of-a-human-vector-icon--shapes-icons--icons-download-14-removebg-preview.png" />
          </image>
       </ImageView>
+      <Button layoutX="864.0" layoutY="397.0" mnemonicParsing="false" onAction="#restPass" prefHeight="5.0" prefWidth="118.0" style="-fx-background-color: #424242;" text="Forgot Password ?" textFill="#ffd812">
+         <font>
+            <Font name="Berlin Sans FB" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

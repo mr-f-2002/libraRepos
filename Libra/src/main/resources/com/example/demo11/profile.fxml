@@ -13,38 +13,46 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.Profile">
     <children>
-        <AnchorPane layoutX="15.0" layoutY="271.0" prefHeight="414.0" prefWidth="206.0" style="-fx-background-color: #525252;">
+        <AnchorPane layoutX="15.0" layoutY="275.0" prefHeight="410.0" prefWidth="206.0" style="-fx-background-color: #525252;">
             <children>
-                <Label fx:id="userName" alignment="CENTER" layoutX="16.0" layoutY="6.0" prefHeight="42.0" prefWidth="174.0" text="username" textFill="WHITE">
-                    <font>
-                        <Font name="Tempus Sans ITC" size="23.0" />
-                    </font>
-                </Label>
-                <Label fx:id="userId" alignment="CENTER" layoutX="16.0" layoutY="63.0" prefHeight="54.0" prefWidth="174.0" text="User ID : " textFill="WHITE">
-                    <font>
-                        <Font name="Tempus Sans ITC" size="16.0" />
-                    </font>
-                </Label>
-            <Button fx:id="logOut" alignment="TOP_LEFT" layoutX="42.0" layoutY="310.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="122.0" style="-fx-background-color: #333333; -fx-background-radius: 12;" styleClass="out" stylesheets="@stylesheet.css" text="Log Out" textFill="WHITE">
+            <Button fx:id="logOut" alignment="CENTER" layoutX="45.0" layoutY="320.0" mnemonicParsing="false" onAction="#logout" onMouseClicked="#logout" prefHeight="35.0" prefWidth="122.0" style="-fx-background-color: #333333; -fx-background-radius: 12;" styleClass="out" stylesheets="@stylesheet.css" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="Lucida Calligraphy Italic" size="21.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" onMouseClicked="#logout" size="20" text="">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </FontAwesomeIcon>
+               </graphic>
             </Button>
-            <ImageView fitHeight="193.0" fitWidth="209.0" layoutX="3.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@libraLogo.png" />
-               </image>
-            </ImageView>
-            <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" layoutX="130.0" layoutY="339.0" onMouseDragged="#logout" size="20" />
+            <Label fx:id="userName" alignment="CENTER_RIGHT" layoutX="3.0" layoutY="14.0" prefHeight="54.0" prefWidth="152.0" text="username" textFill="WHITE">
+               <font>
+                  <Font name="Tempus Sans ITC" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="userId" alignment="CENTER_RIGHT" layoutY="68.0" prefHeight="42.0" prefWidth="152.0" text="User ID " textFill="WHITE">
+               <font>
+                  <Font name="Tempus Sans ITC" size="16.0" />
+               </font>
+            </Label>
+            <FontAwesomeIcon fill="#3cff00" glyphName="CHECK_CIRCLE" layoutX="163.0" layoutY="52.0" size="20" />
+            <Button fx:id="deleteAcc" alignment="CENTER" layoutX="10.0" layoutY="257.0" mnemonicParsing="false" onAction="#deleteAccount" onMouseClicked="#logout" prefHeight="43.0" prefWidth="186.0" style="-fx-background-color: #333333; -fx-background-radius: 12;" styleClass="out" stylesheets="@stylesheet.css" text=" Delete Account" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Calligraphy Italic" size="10.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="TRASH" size="18" styleClass="cancle-button" />
+               </graphic>
+            </Button>
             </children></AnchorPane>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="26.0" prefHeight="134.0" prefWidth="206.0" text="Libra" textFill="WHITE">
-            <font>
-                <Font name="Old English Text MT" size="73.0" />
-            </font>
-        </Label>
         <Button fx:id="addPost" layoutX="1125.0" layoutY="559.0" mnemonicParsing="false" onAction="#addPost" prefHeight="43.0" prefWidth="60.0" style="-fx-background-color: #424242;" textFill="WHITE">
          <graphic>
             <FontAwesomeIcon fill="WHITE" glyphName="PLUS_SQUARE" onMouseClicked="#addPost" selectionFill="#903232" size="45" />
@@ -63,7 +71,7 @@
             <content>
                 <VBox fx:id="container" prefHeight="682.0" prefWidth="870.0" />
             </content></ScrollPane>
-      <Label fx:id="userName1" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="180.0" prefHeight="66.0" prefWidth="206.0" text="My Profile" textAlignment="CENTER" textFill="#53fff1">
+      <Label fx:id="userName1" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="190.0" prefHeight="66.0" prefWidth="206.0" text="My Profile" textAlignment="CENTER" textFill="#53fff1">
          <font>
             <Font name="Lucida Calligraphy Italic" size="30.0" />
          </font>
@@ -75,5 +83,10 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <ImageView fitHeight="286.0" fitWidth="230.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Screenshot%202023-04-03%20003325.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

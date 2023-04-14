@@ -71,7 +71,7 @@
             <Font name="Lucida Calligraphy Italic" size="20.0" />
          </font>
       </Button>
-      <PasswordField id="lion" fx:id="sPassword" layoutX="689.0" layoutY="401.0" prefHeight="26.0" prefWidth="454.0" promptText="Enter Password" stylesheets="@stylesheet.css" />
+      <PasswordField id="lion" fx:id="sPassword" layoutX="689.0" layoutY="401.0" prefHeight="26.0" prefWidth="454.0" promptText="Should contain A-Z, a-z, 0-9, special symbols" stylesheets="@stylesheet.css" />
       <Label fx:id="signupError" alignment="CENTER" layoutX="576.0" layoutY="503.0" prefHeight="34.0" prefWidth="471.0" textAlignment="CENTER" textFill="#ff4103">
          <font>
             <Font name="Gabriola" size="28.0" />

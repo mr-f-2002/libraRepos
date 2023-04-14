@@ -23,13 +23,18 @@ import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
+
+import javax.mail.MessagingException;
 import java.net.URISyntaxException;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Controller {
     public TextField txt_show;
+    @FXML
+    public static boolean state;
     public ImageView ibopen;
     public ImageView ifclose;
     @FXML
@@ -150,7 +155,7 @@ public class Controller {
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-                String title="WElCOME TO LIBRA ❤";
+                String title="WELCOME TO LIBRA ❤";
                 String message= "LOGGED IN AS :"+"'"+username.getText()+"'"+"\n";
                 TrayNotification tray=new TrayNotification();
                 AnimationType type= AnimationType.POPUP;
@@ -178,7 +183,7 @@ public class Controller {
     }
 
     @FXML
-    protected void signup(ActionEvent event) throws SQLException, IOException {
+    protected void signup(ActionEvent event) throws SQLException, IOException, NoSuchAlgorithmException, MessagingException {
      //   createNotification();
         //signup button in signup page
         System.out.println("Signup Button Pressed");
@@ -248,7 +253,8 @@ public class Controller {
                 tray.showAndDismiss(Duration.seconds(1));}
                // signupError.setText("username can contain only lowercase letters, numbers and underscore symbol");
             else if(UTILITY.checkPassword(pas1) == false)
-            {String title="SIGNUP FAILED";
+            {
+                String title="SIGNUP FAILED";
                 String message="Password is not Strong Enough!\n";
                 TrayNotification tray=new TrayNotification();
                 AnimationType type= AnimationType.POPUP;
@@ -259,24 +265,20 @@ public class Controller {
                 tray.showAndDismiss(Duration.seconds(1));}
                // signupError.setText("Password is not Strong Enough!");
             else {
-                String title="Sign In Successful";
-                String message="Sign In Successful\n"+"UserName:"+"'"+username+"'";
-                TrayNotification tray=new TrayNotification();
-                AnimationType type= AnimationType.POPUP;
-                tray.setAnimationType(type);
-                tray.setTitle(title);
-                tray.setMessage(message);
-                tray.setNotificationType(NotificationType.SUCCESS);
-                tray.showAndDismiss(Duration.seconds(1));
-
                 pas1 = UTILITY.encrypt(pas1);
-                JDBC.EnterData(fn, ln, id, department, mail, username, pas1);
-                Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setResizable(false);
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("otp.fxml"));
+                Parent rt = loader.load();
+                Otp otp = loader.getController();
+                otp.initialize(null, null);
+                otp.setData(fn, ln, id, department, mail, username, pas1);
+                Stage stg = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                stg.setResizable(false);
+                Scene scn = new Scene(rt);
+                stg.setScene(scn);
+                stg.show();
+
+
             }
         }
     }
@@ -339,6 +341,19 @@ public class Controller {
         password.setVisible(true);
 
 
+    }
+
+    public void restPass(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("forgetPass.fxml"));
+        Parent rt = loader.load();
+        ForgetPass forgetPass = loader.getController();
+        forgetPass.initialize(null, null);
+
+        Stage stg = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stg.setResizable(false);
+        Scene scn = new Scene(rt);
+        stg.setScene(scn);
+        stg.show();
     }
 
 //    public void notifii(ActionEvent actionEvent) {

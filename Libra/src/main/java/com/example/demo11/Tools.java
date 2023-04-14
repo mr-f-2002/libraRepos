@@ -1,5 +1,6 @@
 package com.example.demo11;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
@@ -114,5 +116,33 @@ public class Tools implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         webEngine = webview.getEngine();
         webEngine.load("http://library.iutoic-dhaka.edu/main/");
+    }
+
+    private WebHistory history;
+    private Double websize = 1.00;
+    public void back(ActionEvent event) {
+        history = webEngine.getHistory();
+        ObservableList<WebHistory.Entry> entry = history.getEntries();
+        history.go(-1);
+    }
+
+    public void refresh(ActionEvent event) {
+        webEngine.reload();
+    }
+
+    public void forward(ActionEvent event) {
+        history = webEngine.getHistory();
+        ObservableList<WebHistory.Entry> entry = history.getEntries();
+        history.go(+1);
+    }
+
+    public void zoomin(ActionEvent event) {
+        websize += 0.2;
+        webview.setZoom(websize);
+    }
+
+    public void zoomout(ActionEvent event) {
+        websize -= 0.2;
+        webview.setZoom(websize);
     }
 }

@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -19,6 +20,9 @@
             <font>
                 <Font name="Calibri" size="26.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
         </Label>
         <Label fx:id="postId" text="Label">
             <VBox.margin>
@@ -48,14 +52,17 @@
                 <Insets bottom="10.0" />
             </VBox.margin>
         </HBox>
-        <TextArea fx:id="post_body" editable="false" maxHeight="1.7976931348623157E308" maxWidth="830.0" minHeight="-Infinity" minWidth="830.0" prefHeight="200.0" prefWidth="830.0" text="sjfddoij">
+        <TextArea fx:id="post_body" editable="false" maxHeight="1.7976931348623157E308" maxWidth="830.0" minHeight="-Infinity" minWidth="830.0" prefHeight="200.0" prefWidth="830.0" text=" esd ffvvsvs vsfdbfdb asxdgtthyjukikijghjhfjjjjhsjfddoij">
             <font>
-                <Font name="Calibri" size="14.0" />
+                <Font name="Nirmala UI" size="14.5" />
             </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
         </TextArea>
         <HBox prefHeight="62.0" prefWidth="870.0">
             <children>
-                <Label fx:id="likeCount" prefHeight="26.0" text="likes">
+                <Label fx:id="likeCount" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="20.0" text="likes">
                     <padding>
                         <Insets right="5.0" />
                     </padding>
@@ -75,7 +82,7 @@
                         <ToggleGroup fx:id="interaction" />
                     </toggleGroup>
                 </ToggleButton>
-                <Label fx:id="dislikeCount" prefHeight="26.0" text="dislikes">
+                <Label fx:id="dislikeCount" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="20.0" text="dislikes">
                     <HBox.margin>
                         <Insets left="40.0" />
                     </HBox.margin>
@@ -95,7 +102,7 @@
                         </ImageView>
                     </graphic>
                 </ToggleButton>
-                <Label fx:id="cmntCount" prefHeight="26.0" text="comments">
+                <Label fx:id="cmntCount" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="20.0" text="comments">
                     <HBox.margin>
                         <Insets left="40.0" />
                     </HBox.margin>
@@ -117,7 +124,7 @@
                 </Button>
             <Button fx:id="deleteBtn1" mnemonicParsing="false" onAction="#opendeleteWindow" stylesheets="@stylesheet.css">
                <HBox.margin>
-                  <Insets left="350.0" />
+                  <Insets left="480.0" />
                </HBox.margin>
                <graphic>
                   <FontAwesomeIcon glyphName="TRASH" size="20" />

@@ -4,8 +4,13 @@ module com.example.demo11 {
     requires java.sql;
     requires controlsfx;
     requires java.desktop;
-    requires javafx.web;
     requires TrayTester;
+    requires javafx.web;
+    requires java.net.http;
+    requires commons.net;
+    requires org.apache.commons.net;
+    requires java.mail;
+    requires ojdbc10;
 
 
     opens com.example.demo11 to javafx.fxml;

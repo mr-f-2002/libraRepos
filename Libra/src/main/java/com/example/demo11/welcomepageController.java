@@ -187,6 +187,19 @@ public class welcomepageController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    public void profilepage(ActionEvent event,  String s1, String s2) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
+        root = loader.load();
+        Profile pp = loader.getController();
+        pp.initialize(null, null, USERID);
+        pp.setData(s1, s2);
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
 

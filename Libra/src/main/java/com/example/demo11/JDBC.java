@@ -19,9 +19,6 @@ public class JDBC {
     public static void EnterData(String firstname, String lastname, String studentid, String department, String email, String username, String pass) throws SQLException, IOException
     {
             System.out.println("Inside the enter data portion");
-//            String url = "jdbc:mysql://localhost:3306/libra";
-//            String user = "root";
-//            String password = "yh56$$hHFHD45";
             String userId = UTILITY.generateString();
 
             try {
@@ -38,9 +35,6 @@ public class JDBC {
 
     public static boolean checkUsernameAndMail(String Username, String Email) throws SQLException, IOException
     {
-//        String url = "jdbc:mysql://localhost:3306/libra";
-//        String user = "root";
-//        String password = "yh56$$hHFHD45";
         ResultSet rs = null;
         try {
             Connection conn= connection.fastconnect();
@@ -70,9 +64,6 @@ public class JDBC {
 
     public static boolean checkEntry (String Username, String Password) throws SQLException {
         String sql = "INSERT INTO userdata (firstname, lastname, studentid, department, email, username, pass) VALUES (?, ?, ?, ?, ?, ?, ?)";
-//        String url = "jdbc:mysql://localhost:3306/libra";
-//        String user = "root";
-//        String password = "yh56$$hHFHD45";
         ResultSet rs = null;
         try {
             Connection conn= connection.fastconnect();
@@ -123,10 +114,6 @@ public class JDBC {
     }
 
     public static void insertNewPost(String pid, String pbody, LocalDateTime pdate, String puserid, String pcategory){
-        System.out.println("inside the enter data portion");
-//        String url = "jdbc:mysql://localhost:3306/libra";
-//        String user = "root";
-//        String password = "yh56$$hHFHD45";
         String userId = UTILITY.generateString();
 
         try {
@@ -180,15 +167,15 @@ public class JDBC {
 
                 int imgSetter = JDBC.isLikedOrDisliked(rs.getString("postid"));
                 if(imgSetter == 1) {
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeFillImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 } else if(imgSetter == 2){
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDisikeFillImg());
                 } else{
 
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 }
                 setPost.add(set);
             }
@@ -230,15 +217,15 @@ public class JDBC {
 
                 int imgSetter = JDBC.isLikedOrDisliked(rs.getString("postid"));
                 if(imgSetter == 1) {
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeFillImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 } else if(imgSetter == 2){
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDisikeFillImg());
                 } else{
 
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 }
                 setPost.add(set);
             }
@@ -285,15 +272,15 @@ public class JDBC {
 
                 int imgSetter = JDBC.isLikedOrDisliked(rs.getString("postid"));
                 if(imgSetter == 1) {
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeFillImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 } else if(imgSetter == 2){
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDisikeFillImg());
                 } else{
 
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 }
                 setPost.add(set);
             }
@@ -407,15 +394,15 @@ public class JDBC {
 
                 int imgSetter = JDBC.isLikedOrDisliked(rs.getString("postid"));
                 if(imgSetter == 1) {
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeFillImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 } else if(imgSetter == 2){
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDisikeFillImg());
                 } else{
 
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 }
                 setPost.add(set);
             }
@@ -455,15 +442,15 @@ public class JDBC {
 
                 int imgSetter = JDBC.isLikedOrDisliked(rs.getString("postid"));
                 if(imgSetter == 1) {
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeFillImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 } else if(imgSetter == 2){
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDisikeFillImg());
                 } else{
 
-                    set.setLikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
-                    set.setDislikeImgUrl("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+                    set.setLikeImgUrl(UTILITY.getLikeImg());
+                    set.setDislikeImgUrl(UTILITY.getDislikeImg());
                 }
 
                 setPost.add(set);
@@ -629,6 +616,28 @@ public class JDBC {
             e.printStackTrace();
         }
         return cmnts;
+    }
+
+    public static void deleteAccount(String userid){
+        try {
+            Connection conn= connection.fastconnect();
+            Statement st = conn.createStatement();
+            st.execute("delete from userdata where userid = '" + userid + "';");
+        } catch (SQLException e) {
+            System.out.println("Failed to connect");
+            e.printStackTrace();
+        }
+    }
+
+    public static void updatePassword(String mail, String pass){
+        try{
+            Connection conn = connection.fastconnect();
+            Statement statement = conn.createStatement();
+            statement.execute("update userdata set password = '" + pass + "' where email = '" + mail + "';");
+        } catch (SQLException e) {
+            System.out.println("failed to update password");
+            throw new RuntimeException(e);
+        }
     }
 }
 

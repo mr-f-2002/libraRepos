@@ -8,10 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -78,7 +75,7 @@ public class Structure implements Initializable {
 
     }
     @FXML
-    void opendeleteWindow(ActionEvent event) {
+    void opendeleteWindow(ActionEvent event) throws IOException {
         String title="DELETE CONFIRM";
         String message=""+"'"+postId.getText()+"'"+" POST ID HAS BEEN DELETED\n ";
         TrayNotification tray=new TrayNotification();
@@ -88,10 +85,18 @@ public class Structure implements Initializable {
         tray.setMessage(message);
         tray.setNotificationType(NotificationType.SUCCESS);
         tray.showAndDismiss(Duration.seconds(2));
-
-
         System.out.println("hi");
-       JDBC.deletingPost(postId.getText());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Deleting Post");
+        alert.setContentText("Do you want to delete the post?");
+        if(alert.showAndWait().get() == ButtonType.OK) {
+            JDBC.deletingPost(postId.getText());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
+            Parent root = loader.load();
+            welcomepageController wc = new welcomepageController();
+            wc.profilepage(event, welcomepageController.USERNAME, welcomepageController.USERID);
+        }
+
 
     }
     @FXML
@@ -121,17 +126,17 @@ public class Structure implements Initializable {
         tray.showAndDismiss(Duration.seconds(1));
         if(dislikeBtn.isSelected()==true)
         {
-            Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislikeFill.png");
+            Image image = new Image(UTILITY.getDisikeFillImg());
             dislikeImg.setImage(image);
             JDBC.insertDislike(welcomepageController.USERID, postId.getText());
             welcomepageController wc = new welcomepageController();
             wc.homepage(event, welcomepageController.USERNAME, welcomepageController.USERID);
         }
         else {
-            Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+            Image image = new Image(UTILITY.getDislikeImg());
             dislikeImg.setImage(image);
         }
-        Image img = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
+        Image img = new Image(UTILITY.getLikeImg());
         likeImg.setImage(img);
     }
 
@@ -149,7 +154,7 @@ public class Structure implements Initializable {
         tray.showAndDismiss(Duration.seconds(1));
         if(likeBtn.isSelected()==true)
         {
-            Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\likeFill.png");
+            Image image = new Image(UTILITY.getLikeFillImg());
             likeImg.setImage(image);
             System.out.println(postId.getText());
             JDBC.insertLike(welcomepageController.USERID, postId.getText());
@@ -158,10 +163,10 @@ public class Structure implements Initializable {
             wc.homepage(event, welcomepageController.USERNAME, welcomepageController.USERID);
         }
         else {
-            Image image = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\like.png");
+            Image image = new Image(UTILITY.getLikeImg());
             likeImg.setImage(image);
         }
-        Image img = new Image("C:\\Users\\Hp\\OneDrive\\Desktop\\libraRepos\\Libra\\src\\main\\resources\\com\\example\\demo11\\dislike.png");
+        Image img = new Image(UTILITY.getDislikeImg());
         dislikeImg.setImage(img);
     }
 

@@ -9,7 +9,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -186,6 +188,22 @@ public class Profile implements Initializable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }
+    }
+
+    @FXML
+    void deleteAccount(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Account Deleting!!!");
+        alert.setContentText("Do you want to Delete your Account?");
+        if(alert.showAndWait().get() == ButtonType.OK) {
+            JDBC.deleteAccount(welcomepageController.USERID);
+            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setResizable(false);
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 

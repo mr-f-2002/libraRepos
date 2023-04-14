@@ -15,6 +15,7 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -52,14 +53,14 @@ public class NewPost implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("welcomepage.fxml"));
             root = loader.load();
             {   String title="INFO";
-                String message="POST IS GOING TO BE CANCELLED\n";
+                String message="POST IS CANCELLED\n";
                 TrayNotification tray=new TrayNotification();
                 AnimationType type= AnimationType.POPUP;
                 tray.setAnimationType(type);
                 tray.setTitle(title);
                 tray.setMessage(message);
                 tray.setNotificationType(NotificationType.WARNING);
-                tray.showAndDismiss(Duration.seconds(2));}
+                tray.showAndDismiss(Duration.seconds(1));}
             welcomepageController wc = loader.getController();
             wc.initialize (null,null,userName.getText(),userId.getText());
             wc.setData(userName.getText(), userId.getText());
@@ -72,12 +73,27 @@ public class NewPost implements Initializable {
     }
 
     @FXML
-    void insertPost(ActionEvent event) {
+    void insertPost(ActionEvent event) throws Exception {
         String postBODY = postArea.getText();
         String userID = userId.getText();
         String categoryNAME = category.getValue() ;
         String postId = UTILITY.generateString();
         LocalDateTime currentDate = LocalDateTime.now();
+        if(ProfanityChecker.containsProfanity(postBODY))
+        {
+            System.out.println("This is executed");
+            JOptionPane.showMessageDialog(null, "Profanity Detected", "Warning", JOptionPane.INFORMATION_MESSAGE);
+//            String title="WARNING!";
+//            String message="INAPPROPRIATE POST\n";
+//            TrayNotification tray=new TrayNotification();
+//            AnimationType type= AnimationType.POPUP;
+//            tray.setAnimationType(type);
+//            tray.setTitle(title);
+//            tray.setMessage(message);
+//            tray.setNotificationType(NotificationType.ERROR);
+//            tray.showAndDismiss(Duration.seconds(1));
+            return ;
+        }
         JDBC.insertNewPost(postId, postBODY, currentDate, userID, categoryNAME);
         System.out.println(postId +" "+ userID +" "+ postBODY +" "+ categoryNAME +" "+ currentDate);
 
