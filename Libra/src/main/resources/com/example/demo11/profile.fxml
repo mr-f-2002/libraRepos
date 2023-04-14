@@ -83,7 +83,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ImageView fitHeight="286.0" fitWidth="230.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="111.0" fitWidth="222.0" layoutX="8.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Screenshot%202023-04-03%20003325.png" />
          </image>
