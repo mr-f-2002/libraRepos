@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.Controller">
+   <children>
+      <ImageView fitHeight="814.0" fitWidth="1308.0" layoutY="-47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@background.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane id="loginWrapper" layoutX="354.0" layoutY="61.0" prefHeight="598.0" prefWidth="511.0" stylesheets="@stylesheet.css">
+         <children>
+            <Label layoutX="162.0" prefHeight="55.0" prefWidth="186.0" text="Sign Up">
+               <font>
+                  <Font name="Brush Script MT Italic" size="63.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.11654321104288101" green="0.0805068239569664" blue="0.621052622795105" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.2631579041481018" green="0.2956140339374542" blue="0.31578946113586426" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children></AnchorPane>
+      <TextField id="field" fx:id="firstName" layoutX="386.0" layoutY="164.0" prefHeight="18.0" prefWidth="453.0" promptText="First Name" stylesheets="@stylesheet.css">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font></TextField>
+      <TextField id="field" fx:id="lastName" layoutX="386.0" layoutY="212.0" prefHeight="18.0" prefWidth="453.0" promptText="Last Name" stylesheets="@stylesheet.css">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font></TextField>
+      <TextField id="field" fx:id="sId" layoutX="385.0" layoutY="263.0" prefHeight="18.0" prefWidth="453.0" promptText="Student Id" stylesheets="@stylesheet.css">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font></TextField>
+      <TextField id="field" fx:id="dept" layoutX="385.0" layoutY="313.0" prefHeight="18.0" prefWidth="453.0" promptText="Department" stylesheets="@stylesheet.css">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font></TextField>
+      <TextField id="field" fx:id="email" layoutX="385.0" layoutY="362.0" prefHeight="18.0" prefWidth="453.0" promptText="E-mail Address" stylesheets="@stylesheet.css">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font></TextField>
+      <TextField id="field" fx:id="sUsername" layoutX="385.0" layoutY="407.0" prefHeight="18.0" prefWidth="453.0" promptText="Username" stylesheets="@stylesheet.css">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font></TextField>
+      <PasswordField id="field" fx:id="sRepassword" layoutX="385.0" layoutY="497.0" prefHeight="26.0" prefWidth="454.0" promptText="Re-Enter password" stylesheets="@stylesheet.css">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font>
+      </PasswordField>
+      <Button id="btn" alignment="CENTER" layoutX="435.0" layoutY="568.0" mnemonicParsing="false" onAction="#signup" prefHeight="44.0" prefWidth="155.0" stylesheets="@stylesheet.css" text="Sign Up">
+         <font>
+            <Font name="Lucida Calligraphy Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button id="btnr" alignment="CENTER" layoutX="632.0" layoutY="568.0" mnemonicParsing="false" onAction="#signupcancel" prefHeight="44.0" prefWidth="155.0" stylesheets="@stylesheet.css" text="Cancel" textFill="#efefef">
+         <font>
+            <Font name="Lucida Calligraphy Italic" size="20.0" />
+         </font>
+      </Button>
+      <Circle id="loginWrapper" fill="#1f93ff00" layoutX="10.0" layoutY="102.0" radius="65.0" stroke="#ebfcff" strokeType="INSIDE" />
+      <Circle id="loginWrapper" fill="#1f93ff00" layoutX="32.0" layoutY="625.0" radius="131.0" stroke="#ebfcff" strokeType="INSIDE" />
+      <Polygon id="loginWrapper" fill="#55565700" layoutX="1150.0" layoutY="606.0" points="-52.79998779296875, 124.79998779296875, 98.4000244140625, 40.0, 0.0, -60.0" stroke="#ebfcff" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="2.0" />
+      <Polygon id="loginWrapper" fill="#55565700" layoutX="1133.0" layoutY="475.0" points="-52.79998779296875, 124.79998779296875, 98.4000244140625, 40.0, 0.0, -60.0" stroke="#ebfcff" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="2.0" />
+      <PasswordField id="field" fx:id="sPassword" layoutX="383.0" layoutY="450.0" prefHeight="26.0" prefWidth="454.0" promptText="Password" stylesheets="@stylesheet.css">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font>
+      </PasswordField>
+   </children>
+</AnchorPane>

@@ -1,0 +1,9 @@
+.button{
+    -fx-background-color : #424242;
+    -fx-font-family: Billabong;
+}
+.button:hover
+{
+    -fx-background-color : #07f7f7;
+    -fx-font-family:"Roboto Light";
+}
