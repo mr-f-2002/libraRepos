@@ -14,73 +14,83 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.welcomepageController">
    <children>
-      <AnchorPane layoutX="13.0" layoutY="263.0" prefHeight="422.0" prefWidth="206.0" style="-fx-background-color: #525252;">
+      <ImageView fitHeight="805.0" fitWidth="1216.0" layoutY="-95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="233.0" fitWidth="230.0" layoutX="1.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Screenshot%202023-04-03%20003325.png" />
+         </image>
+      </ImageView>
+      <AnchorPane id="loginWrapper" layoutX="-22.0" layoutY="633.0" prefHeight="50.0" prefWidth="180.0" stylesheets="@stylesheet.css" />
+      <AnchorPane fx:id="upp" layoutX="-202.0" layoutY="635.0" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: red; -fx-background-radius: 20px;" />
+      <Button id="study" fx:id="tools" alignment="CENTER" layoutX="-22.0" layoutY="633.0" mnemonicParsing="false" onAction="#loadToolsPage" onMouseEntered="#detect" onMouseExited="#detectt" prefHeight="50.0" prefWidth="180.0" stylesheets="@stylesheet.css" text="Study Tools">
+         <font>
+            <Font name="Lucida Console" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <AnchorPane id="loginWrapper" layoutX="13.0" layoutY="263.0" prefHeight="338.0" prefWidth="206.0" stylesheets="@stylesheet.css">
          <children>
-            <Label fx:id="userName" alignment="CENTER" layoutX="15.0" layoutY="37.0" prefHeight="54.0" prefWidth="174.0" text="username" textFill="WHITE">
+            <Label fx:id="userName" alignment="CENTER" layoutX="15.0" layoutY="53.0" prefHeight="26.0" prefWidth="174.0" text="username">
                <font>
-                  <Font name="Tempus Sans ITC" size="23.0" />
+                  <Font name="Lucida Console" size="23.0" />
                </font>
             </Label>
-            <Label fx:id="userId" alignment="CENTER" layoutX="15.0" layoutY="91.0" prefHeight="54.0" prefWidth="174.0" text="User ID : " textFill="WHITE">
+            <Label fx:id="userId" alignment="CENTER" layoutX="15.0" layoutY="91.0" prefHeight="11.0" prefWidth="174.0" text="User ID : ">
                <font>
-                  <Font name="Tempus Sans ITC" size="16.0" />
+                  <Font name="Lucida Console" size="14.0" />
                </font>
             </Label>
-            <Button id="tiktok-button" fx:id="tools" alignment="CENTER" layoutX="26.0" layoutY="353.0" mnemonicParsing="false" onAction="#loadToolsPage" stylesheets="@stylesheet.css" text="Study Tools">
-               <font>
-                  <Font name="Bradley Hand ITC" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
          </children></AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="190.0" prefHeight="64.0" prefWidth="205.0" style="-fx-background-color: #525252;">
-         <children>
-            <TextField fx:id="searchbar" layoutX="5.0" layoutY="15.0" prefHeight="35.0" prefWidth="158.0" promptText="Search" style="-fx-background-color: #434343; -fx-text-fill: #ffffff;">
-               <font>
-                  <Font name="Century" size="13.0" />
-               </font>
-            </TextField>
-            <Button fx:id="searchBtn" layoutX="169.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchPost" prefHeight="35.0" prefWidth="29.0" style="-fx-background-color: #424242;" stylesheets="@stylesheet.css">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <graphic>
-                  <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" onMouseClicked="#searchPost" size="17" />
-               </graphic></Button>
-         </children>
-      </AnchorPane>
-      <Button fx:id="addPost" layoutX="1127.0" layoutY="489.0" mnemonicParsing="false" onAction="#addPost" prefHeight="58.0" prefWidth="64.0" style="-fx-background-color: #424242;" styleClass="icon-button" stylesheets="@stylesheet.css">
+      <TextField id="loginWrapper" fx:id="searchbar" layoutX="13.0" layoutY="212.0" prefHeight="35.0" prefWidth="163.0" promptText="Search" stylesheets="@stylesheet.css">
+         <font>
+            <Font name="Lucida Console" size="13.0" />
+         </font>
+      </TextField>
+      <Button id="loginWrapper" fx:id="searchBtn" layoutX="182.0" layoutY="212.0" mnemonicParsing="false" onAction="#searchPost" prefHeight="35.0" prefWidth="29.0" stylesheets="@stylesheet.css">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
          <graphic>
-            <FontAwesomeIcon fill="WHITE" glyphName="PLUS_SQUARE" layoutX="1128.0" layoutY="595.0" onMouseClicked="#addPost" size="50" wrappingWidth="47.85714340209961">
+            <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" onMouseClicked="#searchPost" size="17" text="" />
+         </graphic>
+      </Button>
+      <Button layoutX="1127.0" layoutY="489.0" mnemonicParsing="false" onAction="#addPost" prefHeight="62.0" prefWidth="55.0" style="-fx-background-color: transparent;" styleClass="trdbtn" stylesheets="@stylesheet.css">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="PLUS_SQUARE" layoutX="1128.0" layoutY="595.0" onMouseClicked="#addPost" size="50" text="" wrappingWidth="47.85714340209961">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </FontAwesomeIcon>
          </graphic></Button>
-      <Button fx:id="myProfile" layoutX="1127.0" layoutY="558.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="54.0" prefWidth="57.0" style="-fx-background-color: #424242;" textFill="#a47627">
+      <Button layoutX="1127.0" layoutY="558.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="54.0" prefWidth="57.0" style="-fx-background-color: transparent;" styleClass="trdbtn" stylesheets="@stylesheet.css" textFill="#a47627">
          <graphic>
-            <FontAwesomeIcon fill="WHITE" glyphName="HOME" onMouseClicked="#loadHome" selectionFill="#804646" size="50" wrappingWidth="51.0" />
+            <FontAwesomeIcon fill="WHITE" glyphName="HOME" onMouseClicked="#loadHome" size="50" wrappingWidth="51.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></FontAwesomeIcon>
          </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="home" layoutX="1129.0" layoutY="629.0" mnemonicParsing="false" onAction="#loadProfile" prefHeight="58.0" prefWidth="56.0" style="-fx-background-color: #424242;">
+      <Button layoutX="1129.0" layoutY="629.0" mnemonicParsing="false" onAction="#loadProfile" prefHeight="58.0" prefWidth="56.0" style="-fx-background-color: transparent;" styleClass="trdbtn" stylesheets="@stylesheet.css">
          <graphic>
-            <FontAwesomeIcon fill="WHITE" glyphName="USER" onMouseClicked="#loadProfile" size="50" wrappingWidth="46.28571319580078" />
+            <FontAwesomeIcon fill="WHITE" glyphName="USER" onMouseClicked="#loadProfile" size="50" styleClass="trdbtn" wrappingWidth="46.28571319580078">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></FontAwesomeIcon>
          </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ScrollPane layoutX="238.0" layoutY="8.0" prefHeight="686.0" prefWidth="873.0" style="-fx-background: #525252;">
+      <ScrollPane id="test" layoutX="238.0" layoutY="8.0" prefHeight="686.0" prefWidth="873.0" stylesheets="@stylesheet.css">
          <content>
-            <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="682.0" prefWidth="870.0" />
+            <VBox id="test" fx:id="container" alignment="TOP_CENTER" prefHeight="682.0" prefWidth="870.0" stylesheets="@stylesheet.css" />
          </content></ScrollPane>
-      <ImageView fitHeight="113.0" fitWidth="219.0" layoutX="8.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Screenshot%202023-04-03%20003325.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

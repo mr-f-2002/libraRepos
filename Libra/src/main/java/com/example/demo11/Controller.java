@@ -1,37 +1,33 @@
 package com.example.demo11;
 //import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import java.net.URL;
-import java.awt.Desktop;
-import javafx.scene.control.Hyperlink;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-//import org.controlsfx.control.Notifications;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
 import javax.mail.MessagingException;
-import java.net.URISyntaxException;
 import java.io.IOException;
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
     public TextField txt_show;
     @FXML
     public static boolean state;
@@ -66,6 +62,9 @@ public class Controller {
     private Scene scene;
     @FXML
     private Parent root;
+    @FXML
+    private AnchorPane wrapper;
+
   //  String help;
 
 // add the button to a container or scene
@@ -320,7 +319,6 @@ public class Controller {
     }
     public void show_pass(KeyEvent keyEvent) {
         help=txt_show.getText();
-        help=txt_show.getText();
         password.setText(help);
         System.out.println("pass in show: " + help);
 
@@ -354,6 +352,12 @@ public class Controller {
         Scene scn = new Scene(rt);
         stg.setScene(scn);
         stg.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //txt_show.setVisible(false);
+
     }
 
 //    public void notifii(ActionEvent actionEvent) {

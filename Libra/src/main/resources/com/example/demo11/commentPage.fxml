@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.CommentPage">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.CommentPage">
    <children>
       <ScrollPane prefHeight="466.0" prefWidth="474.0">
          <content>
@@ -24,12 +24,12 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <TextArea fx:id="cmntBody" prefHeight="10.0" prefWidth="378.0" promptText="Enter your comment " wrapText="true">
+            <TextArea fx:id="cmntBody" prefHeight="10.0" prefWidth="378.0" promptText="Enter your comment " stylesheets="@stylesheet.css" wrapText="true">
                <font>
                   <Font name="Calibri" size="12.0" />
                </font>
             </TextArea>
-            <Button fx:id="postBtn" mnemonicParsing="false" onAction="#uploadCmnt" prefHeight="50.0" prefWidth="51.0" style="-fx-background-color: #0cdfff;" text="Post">
+            <Button id="loginWrapper" fx:id="postBtn" mnemonicParsing="false" onAction="#uploadCmnt" prefHeight="50.0" prefWidth="54.0" style="-fx-background-color: #0cdfff;" stylesheets="@stylesheet.css" text="Post">
                <font>
                   <Font name="Calibri Bold" size="15.0" />
                </font>

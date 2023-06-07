@@ -63,14 +63,13 @@ public class JDBC {
     }
 
     public static boolean checkEntry (String Username, String Password) throws SQLException {
-        String sql = "INSERT INTO userdata (firstname, lastname, studentid, department, email, username, pass) VALUES (?, ?, ?, ?, ?, ?, ?)";
         ResultSet rs = null;
         try {
             Connection conn= connection.fastconnect();
             System.out.println("Connected to database!!");
             Statement statement = conn.createStatement();
-            Password = UTILITY.encrypt(Password);
-            rs = statement.executeQuery("SELECT * FROM userdata WHERE username = '"+Username+"' AND password = '"+Password+"'");
+            String Pass = UTILITY.encrypt(Password);
+            rs = statement.executeQuery("SELECT * FROM userdata WHERE username = '"+Username+"' AND password  = '"+Pass+"'");
             System.out.println("rs executed");
         } catch (SQLException e) {
             System.out.println("Failed to connect");

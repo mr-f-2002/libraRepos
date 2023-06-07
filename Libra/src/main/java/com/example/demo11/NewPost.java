@@ -75,6 +75,18 @@ public class NewPost implements Initializable {
     @FXML
     void insertPost(ActionEvent event) throws Exception {
         String postBODY = postArea.getText();
+        if(postBODY.length()==0){
+            String title="FAILED";
+            String message="POST CANNOT BE EMPTY\n";
+            TrayNotification tray=new TrayNotification();
+            AnimationType type= AnimationType.POPUP;
+            tray.setAnimationType(type);
+            tray.setTitle(title);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.WARNING);
+            tray.showAndDismiss(Duration.seconds(1));
+            return;
+        }
         String userID = userId.getText();
         String categoryNAME = category.getValue() ;
         String postId = UTILITY.generateString();

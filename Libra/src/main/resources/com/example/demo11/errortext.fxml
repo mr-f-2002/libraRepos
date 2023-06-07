@@ -5,6 +5,6 @@
 
 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="403.0" style="-fx-background-color: #494949;" text="no search set" textFill="#ffaf00" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <font>
-      <Font name="Bookman Old Style Bold Italic" size="20.0" />
+      <Font name="Lucida Console" size="20.0" />
    </font>
 </Label>

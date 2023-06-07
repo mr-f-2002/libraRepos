@@ -1,6 +1,7 @@
 package com.example.demo11;
 
 import Model.postUnit;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -200,6 +203,25 @@ public class welcomepageController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
-
+    @FXML
+    private AnchorPane upp;
+    public void detect(MouseEvent mouseEvent) {
+        System.out.println("detected");
+        TranslateTransition tt = new TranslateTransition();
+        tt.setNode(upp);
+        tt.setDuration(Duration.seconds(0.3));
+        tt.setByX(180);
+        tt.setAutoReverse(true);
+        tt.play();
+    }
+    public void detectt(MouseEvent mouseEvent) {
+        System.out.println("detected");
+        TranslateTransition tt = new TranslateTransition();
+        tt.setNode(upp);
+        tt.setDuration(Duration.seconds(0.3));
+        tt.setByX(-180);
+        tt.setAutoReverse(true);
+        tt.play();
+    }
 }
 

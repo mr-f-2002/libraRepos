@@ -10,51 +10,55 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="326.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.Structure">
     <children>
-        <Label fx:id="user_id" prefHeight="37.0" prefWidth="751.0" text="User ID">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+              <HBox layoutX="163.0" layoutY="69.0" prefHeight="15.0" prefWidth="497.0">
+                  <children>
+                      <Label fx:id="category" text="Category">
+                          <font>
+                              <Font name="Lucida Console" size="14.0" />
+                          </font>
+                      </Label>
+                      <Label fx:id="date" text="Date">
+                          <HBox.margin>
+                              <Insets left="30.0" />
+                          </HBox.margin>
+                          <font>
+                              <Font name="Lucida Console" size="14.0" />
+                          </font>
+                      </Label>
+                  </children>
+              </HBox>
+              <Label fx:id="user_id" layoutX="124.0" layoutY="6.0" prefHeight="38.0" prefWidth="375.0" text="User ID">
+                  <font>
+                      <Font name="Lucida Console" size="20.0" />
+                  </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+              </Label>
+              <Label fx:id="postId" layoutX="144.0" layoutY="44.0" prefHeight="14.0" prefWidth="346.0" text="Label">
+                  <font>
+                      <Font name="Lucida Console" size="13.0" />
+                  </font>
+              </Label>
+            <ImageView fitHeight="103.0" fitWidth="205.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@5885-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+        <TextArea fx:id="post_body" editable="false" maxHeight="1.7976931348623157E308" maxWidth="830.0" minHeight="-Infinity" minWidth="830.0" prefHeight="200.0" prefWidth="830.0" text="esd ffvvsvs vsfdbfdb asxdgtthyjukikijghjhfjjjjhsjfddoij">
             <font>
-                <Font name="Calibri" size="26.0" />
-            </font>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-        </Label>
-        <Label fx:id="postId" text="Label">
-            <VBox.margin>
-                <Insets bottom="5.0" top="5.0" />
-            </VBox.margin>
-            <font>
-                <Font name="Calibri Italic" size="15.0" />
-            </font>
-        </Label>
-        <HBox prefHeight="26.0" prefWidth="870.0">
-            <children>
-                <Label fx:id="category" text="Category">
-                    <font>
-                        <Font name="Calibri" size="18.0" />
-                    </font>
-                </Label>
-                <Label fx:id="date" text="Date">
-                    <HBox.margin>
-                        <Insets left="30.0" />
-                    </HBox.margin>
-                    <font>
-                        <Font name="Calibri" size="18.0" />
-                    </font>
-                </Label>
-            </children>
-            <VBox.margin>
-                <Insets bottom="10.0" />
-            </VBox.margin>
-        </HBox>
-        <TextArea fx:id="post_body" editable="false" maxHeight="1.7976931348623157E308" maxWidth="830.0" minHeight="-Infinity" minWidth="830.0" prefHeight="200.0" prefWidth="830.0" text=" esd ffvvsvs vsfdbfdb asxdgtthyjukikijghjhfjjjjhsjfddoij">
-            <font>
-                <Font name="Nirmala UI" size="14.5" />
+                <Font name="Lucida Console" size="14.0" />
             </font>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
@@ -124,7 +128,7 @@
                 </Button>
             <Button fx:id="deleteBtn1" mnemonicParsing="false" onAction="#opendeleteWindow" stylesheets="@stylesheet.css">
                <HBox.margin>
-                  <Insets left="480.0" />
+                  <Insets left="490.0" />
                </HBox.margin>
                <graphic>
                   <FontAwesomeIcon glyphName="TRASH" size="20" />

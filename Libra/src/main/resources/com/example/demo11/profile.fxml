@@ -13,77 +13,74 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo11.Profile">
     <children>
-        <AnchorPane layoutX="15.0" layoutY="275.0" prefHeight="410.0" prefWidth="206.0" style="-fx-background-color: #525252;">
+      <ImageView fitHeight="800.0" fitWidth="1309.0" layoutY="-100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@background.jpg" />
+         </image>
+      </ImageView>
+        <AnchorPane id="loginWrapper" layoutX="15.0" layoutY="275.0" prefHeight="410.0" prefWidth="206.0" stylesheets="@stylesheet.css">
             <children>
-            <Button fx:id="logOut" alignment="CENTER" layoutX="45.0" layoutY="320.0" mnemonicParsing="false" onAction="#logout" onMouseClicked="#logout" prefHeight="35.0" prefWidth="122.0" style="-fx-background-color: #333333; -fx-background-radius: 12;" styleClass="out" stylesheets="@stylesheet.css" text="Log Out" textFill="WHITE">
+            <Button id="btn" fx:id="logOut" alignment="CENTER" layoutX="45.0" layoutY="320.0" mnemonicParsing="false" onAction="#logout" onMouseClicked="#logout" prefHeight="35.0" prefWidth="122.0" styleClass="out" stylesheets="@stylesheet.css" text="Log Out" textFill="WHITE">
                <font>
                   <Font name="Lucida Calligraphy Italic" size="21.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-               <graphic>
-                  <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" onMouseClicked="#logout" size="20" text="">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </FontAwesomeIcon>
-               </graphic>
             </Button>
-            <Label fx:id="userName" alignment="CENTER_RIGHT" layoutX="3.0" layoutY="14.0" prefHeight="54.0" prefWidth="152.0" text="username" textFill="WHITE">
+            <Label fx:id="userName" alignment="CENTER" layoutX="30.0" layoutY="25.0" prefHeight="35.0" prefWidth="152.0" text="username" textAlignment="CENTER">
                <font>
-                  <Font name="Tempus Sans ITC" size="23.0" />
+                  <Font name="Lucida Console" size="23.0" />
                </font>
             </Label>
-            <Label fx:id="userId" alignment="CENTER_RIGHT" layoutY="68.0" prefHeight="42.0" prefWidth="152.0" text="User ID " textFill="WHITE">
+            <Label fx:id="userId" alignment="CENTER" layoutX="30.0" layoutY="68.0" prefHeight="8.0" prefWidth="152.0" text="User ID " textAlignment="CENTER">
                <font>
-                  <Font name="Tempus Sans ITC" size="16.0" />
+                  <Font name="Lucida Console" size="14.0" />
                </font>
             </Label>
-            <FontAwesomeIcon fill="#3cff00" glyphName="CHECK_CIRCLE" layoutX="163.0" layoutY="52.0" size="20" />
-            <Button fx:id="deleteAcc" alignment="CENTER" layoutX="10.0" layoutY="257.0" mnemonicParsing="false" onAction="#deleteAccount" onMouseClicked="#logout" prefHeight="43.0" prefWidth="186.0" style="-fx-background-color: #333333; -fx-background-radius: 12;" styleClass="out" stylesheets="@stylesheet.css" text=" Delete Account" textFill="WHITE">
+            <Button id="buttons" fx:id="deleteAcc" alignment="CENTER" layoutX="42.0" layoutY="119.0" mnemonicParsing="false" onAction="#deleteAccount" onMouseClicked="#logout" prefHeight="42.0" prefWidth="122.0" stylesheets="@stylesheet.css" text=" Delete Account" textFill="WHITE">
                <font>
-                  <Font name="Lucida Calligraphy Italic" size="10.0" />
+                  <Font name="Arial Bold Italic" size="11.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <graphic>
-                  <FontAwesomeIcon fill="WHITE" glyphName="TRASH" size="18" styleClass="cancle-button" />
+                  <FontAwesomeIcon fill="WHITE" glyphName="TRASH" size="15" />
                </graphic>
             </Button>
             </children></AnchorPane>
-        <Button fx:id="addPost" layoutX="1125.0" layoutY="559.0" mnemonicParsing="false" onAction="#addPost" prefHeight="43.0" prefWidth="60.0" style="-fx-background-color: #424242;" textFill="WHITE">
+        <Button fx:id="addPost" layoutX="1125.0" layoutY="559.0" mnemonicParsing="false" onAction="#addPost" prefHeight="43.0" prefWidth="60.0" style="-fx-background-color: transparent;" styleClass="trdbtn" stylesheets="@stylesheet.css" textFill="WHITE">
          <graphic>
             <FontAwesomeIcon fill="WHITE" glyphName="PLUS_SQUARE" onMouseClicked="#addPost" selectionFill="#903232" size="45" />
          </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-        <Button fx:id="myProfile" layoutX="1125.0" layoutY="619.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="43.0" prefWidth="60.0" style="-fx-background-color: #424242;" textFill="#7c5c5c">
+        <Button fx:id="myProfile" layoutX="1125.0" layoutY="629.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="43.0" prefWidth="60.0" style="-fx-background-color: transparent;" styleClass="trdbtn" stylesheets="@stylesheet.css" textFill="#7c5c5c">
          <graphic>
             <FontAwesomeIcon fill="WHITE" glyphName="HOME" onMouseClicked="#loadHome" selectionFill="#903232" size="47" />
          </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-        <ScrollPane layoutX="238.0" layoutY="8.0" prefHeight="686.0" prefWidth="873.0" style="-fx-background: #525252;">
+        <ScrollPane id="test" layoutX="238.0" layoutY="8.0" prefHeight="686.0" prefWidth="873.0" stylesheets="@stylesheet.css">
             <content>
-                <VBox fx:id="container" prefHeight="682.0" prefWidth="870.0" />
+                <VBox id="test" fx:id="container" prefHeight="682.0" prefWidth="870.0" stylesheets="@stylesheet.css" />
             </content></ScrollPane>
-      <Label fx:id="userName1" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="190.0" prefHeight="66.0" prefWidth="206.0" text="My Profile" textAlignment="CENTER" textFill="#53fff1">
+      <Label fx:id="userName1" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="190.0" prefHeight="66.0" prefWidth="206.0" text="My Profile" textAlignment="CENTER">
          <font>
             <Font name="Lucida Calligraphy Italic" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="1125.0" layoutY="499.0" mnemonicParsing="false" onAction="#seeSavedPost" prefHeight="43.0" prefWidth="60.0" style="-fx-background-color: #424242;" textFill="#7c5c5c">
+      <Button layoutX="1125.0" layoutY="487.0" mnemonicParsing="false" onAction="#seeSavedPost" prefHeight="43.0" prefWidth="60.0" style="-fx-background-color: transparent;" styleClass="trdbtn" stylesheets="@stylesheet.css" textFill="#7c5c5c">
          <graphic>
             <FontAwesomeIcon fill="WHITE" glyphName="SAVE" onMouseClicked="#seeSavedPost" selectionFill="#903232" size="45" />
          </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ImageView fitHeight="111.0" fitWidth="222.0" layoutX="8.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="233.0" fitWidth="230.0" layoutX="3.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Screenshot%202023-04-03%20003325.png" />
          </image>

@@ -29,7 +29,19 @@ public class CommentPage implements Initializable {
 
     @FXML
     void uploadCmnt(ActionEvent event) {
-
+        if(cmntBody.getText().length()==0){
+            String title="FAILED";
+            String message="COMMENT CANNOT BE EMPTY\n";
+            TrayNotification tray=new TrayNotification();
+            AnimationType type= AnimationType.POPUP;
+            tray.setAnimationType(type);
+            tray.setTitle(title);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.WARNING);
+            tray.showAndDismiss(Duration.seconds(1));
+            return;
+        }
+        JDBC.insertComment(userid, postid, cmntBody.getText());
         String title="CONFIRMATION";
         String message=" YOUR COMMENT HAS BEEN UPLOADED\n ";
         TrayNotification tray=new TrayNotification();
@@ -41,7 +53,6 @@ public class CommentPage implements Initializable {
         tray.showAndDismiss(Duration.seconds(1));
         //System.out.println("post that I want to insert comment to -> "+postid);
         //System.out.println("user that I want to comment as -> "+userid);
-        JDBC.insertComment(userid, postid, cmntBody.getText());
         System.out.println("Comment inserted");
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
